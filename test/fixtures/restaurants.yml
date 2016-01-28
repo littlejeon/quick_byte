@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  type: 
+  dietary_needs: MyString
+
+two:
+  location: MyString
+  type: 
+  dietary_needs: MyString
