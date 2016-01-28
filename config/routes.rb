@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'sessions/show'
+
+  resources :users
   resources :reviews
   resources :restaurants
-  root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
