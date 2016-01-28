@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.update(org_params)
   end
-  
+
   private
 
   def org_params
