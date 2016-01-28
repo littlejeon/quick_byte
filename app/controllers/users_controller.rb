@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
 
+
+
   def index
     @users = User.all
   end
 
   def show
-    @users = User.all
+    @user = User.find(params[:id])
+
+    # @users = User.all
     # binding.pry
     # @user = User.find(user.id)
   end
@@ -17,11 +21,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+ 
       session[:user_id] = @user.id
-      redirect_to root_path(@user), :notice => "Thank you for signing up!"
+      redirect_to @user, :notice => "Thank you for signing up!"
     else 
       render :new
     end
+
   end
 
   private
