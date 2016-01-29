@@ -1,0 +1,12 @@
+<%= form_tag('/sessions', :method =>'post') do %>
+
+  <%= label_tag :email, 'email: ' %><br>
+  <%= text_field_tag :email %><br>
+
+  <%= label_tag :password, 'Password: ' %><br>
+  <%= password_field_tag :password %><br>
+
+  <%= submit_tag 'Log In' %>
+
+<% end %>
+
