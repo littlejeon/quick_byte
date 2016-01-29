@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160128202504) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
-    t.string   "image_url"
   end
 
   create_table "reviews", force: :cascade do |t|

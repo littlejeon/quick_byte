@@ -11,7 +11,9 @@
 
   <div class="comment">
     <% @restaurant.reviews.each do |review| %>
-    <li> Comment: <%= review.comment %> </li>
+      <% unless review.comment.empty? %>
+        <li> Comment by <%= review.user.name %>: <%=review.comment %> </li>
+      <% end %>
     <% end %>
   </div>
 
