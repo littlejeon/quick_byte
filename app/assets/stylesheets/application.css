@@ -13,3 +13,63 @@
  *= require_tree .
  *= require_self
  */
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+
+body{
+  font-family: 'Oswald', sans-serif;
+  /*background-image:url(https://dianablography.files.wordpress.com/2012/07/img_8082.jpg);*/
+  background-size:100%;
+}
+
+form{
+}
+
+h1,h2,h3,h4,h5,h6{
+  text-transform:uppercase;
+}
+
+.sessions h1{
+  margin-top:0;
+}
+
+.sessions{
+  width:500px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#0db2d9;
+  padding:30px;
+  margin-top:30px;
+  opacity: 0.9;
+}
+
+.sessions div{
+  margin-bottom:20px;
+}
+
+.sessions input {
+  margin-left:10px;
+}
+
+.sessions input[type=submit]{
+  background:#fff;
+  border:none;
+  font-size:1em;
+  color:#000;
+  padding:10px 40px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.links a{
+  padding-right:10px;
+  text-transform: uppercase;
+  color:#000;
+  font-weight:700;
+}
+
+.container{
+  width:500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
