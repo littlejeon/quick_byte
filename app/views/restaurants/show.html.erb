@@ -4,10 +4,15 @@
 <%= render 'reviews/form', {review: Review.new, restaurant: @restaurant} %>
 <ul>
   <%#= binding.pry %>
-  <% @restaurant.reviews.each do |review| %>
-  <li> Comment: <%= review.comment %> </li>
-  <li>Wait Time: <%= review.wait_time %> minutes </li>
-  <li>Price: $ <%= review.price %> </li>
-  <li>Rating: <%= review.rating %> </li>
-  <% end %>
+
+  <li> Wait Time: <%= @restaurant.average_wait_time %> minutes </li>
+  <li> Rating: <%= @restaurant.average_rating %> </li>
+  <li> Price: $<%= @restaurant.average_price %> </li>
+
+  <div class="comment">
+    <% @restaurant.reviews.each do |review| %>
+    <li> Comment: <%= review.comment %> </li>
+    <% end %>
+  </div>
+
 </ul>
