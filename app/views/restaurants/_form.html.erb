@@ -1,0 +1,26 @@
+<h4>Add a Restaurant</h4>
+<%= form_for(restaurant) do |f| %>
+
+<div class="name-field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="location-field">
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+</div>
+
+<div class="cuisine-field">
+  <%= f.label :cuisine %>
+  <%= f.text_field :cuisine %>
+</div>
+
+<div class="dietary-needs-field">
+  <%= f.label :dietary_needs %>
+  <%= f.text_field :dietary_needs, placeholder: "optional" %>
+</div>
+
+<%= f.submit "Create" %>
+
+<% end %>
