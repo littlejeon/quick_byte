@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128202504) do
+ActiveRecord::Schema.define(version: 20160130191814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 20160128202504) do
     t.datetime "updated_at",    null: false
     t.string   "name"
     t.string   "image_url"
+    t.integer  "type_id"
   end
+
+  add_index "restaurants", ["type_id"], name: "index_restaurants_on_type_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
@@ -48,6 +51,15 @@ ActiveRecord::Schema.define(version: 20160128202504) do
   add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "types", ["user_id"], name: "index_types_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -59,7 +71,9 @@ ActiveRecord::Schema.define(version: 20160128202504) do
 
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
+  add_foreign_key "restaurants", "types"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
+  add_foreign_key "types", "users"
   add_foreign_key "users", "organizations"
 end
