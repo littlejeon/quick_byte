@@ -1,11 +1,14 @@
 class ReviewsController < ApplicationController
 
+
   def new
     @review = Review.new
   end
 
   def create
     @review = Review.create(review_params)
+    current_user.reviews << @review
+
     redirect_to @review.restaurant
   end
 

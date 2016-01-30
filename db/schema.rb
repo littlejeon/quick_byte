@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160130191814) do
     t.string   "name"
     t.string   "image_url"
     t.integer  "type_id"
+
   end
 
   add_index "restaurants", ["type_id"], name: "index_restaurants_on_type_id", using: :btree
