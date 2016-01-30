@@ -1,0 +1,6 @@
+<h1> Types of <%= @type.name %> Food </h1>
+<ul>
+  <% @type.restaurants.each do |place| %>
+    <li> <%= link_to place.name, restaurant_path(place) %> </li>
+  <% end %>
+</ul>

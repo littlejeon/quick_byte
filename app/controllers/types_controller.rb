@@ -16,7 +16,7 @@ class TypesController < ApplicationController
   end
 
   def index
-    @type = Type.all
+    @types = Type.all
   end
 
   def show
