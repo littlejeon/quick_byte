@@ -1,1 +1,19 @@
-<%= render 'form' %>
+<h1>This is a new organization form</h1>
+
+<%= form_for @organization do  |f|%>
+    <h3>Organization:</h3>
+
+    <%= f.fields_for :organization do |field| %>
+        <%= field.label "Name" %></div>
+        <%= field.text_field :name %>
+    <% end %>
+
+    <h3>User:</h3>
+
+    <%= f.fields_for :user do |field| %>
+        <%= field.label "Email" %></div>
+        <%= field.text_field :email %>
+    <% end %>
+
+    <%=f.submit  %>
+<% end %>

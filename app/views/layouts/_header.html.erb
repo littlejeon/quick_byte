@@ -2,7 +2,7 @@
   <% if logged_in? %>
     <%= link_to "Log Out", logout_path, method: :delete %>
   <%else%>
-    <%= link_to "Sign Up", signup_path %>
-    <%= link_to "Sign In", login_path %>
+    <%= link_to "Create New Group", new_organization_path %>
+    <%= link_to "Sign in to existing group", login_path %>
   <%end%>
 </div>
