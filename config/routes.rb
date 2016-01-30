@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :reviews
   resources :restaurants
+  resources :types
 
   get '/login', :to => 'sessions#new'
   delete '/logout', :to => 'sessions#destroy'
