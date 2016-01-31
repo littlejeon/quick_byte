@@ -8,6 +8,9 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.create(org_params)
+    user = User.find(session[:user_id])
+    user.organizations << @organization
+    # binding.pry
     redirect_to @organization
     # @user = User.new(email: params[:organization][:user][:email])
     # if @user.save
@@ -23,6 +26,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    # redirect_to '/organizations/@organization.name'
     # binding.pry
 
   end

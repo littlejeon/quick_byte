@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
   skip_before_action :authorize, only: [:new, :create]
 
   def index
-    @user = User.find_by_email(params[:email])
+    @user = User.find(session[:user_id])
+    # binding.pry
     # @organization = Organization.find(:id)
     # @organization = Organization.find_by(name:x.name)
   end
