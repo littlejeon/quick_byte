@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'sessions#index'
+  # root 'user_organizations#index'
+
+  # root 'welcome#index'
 
   resources :organizations
   resources :users

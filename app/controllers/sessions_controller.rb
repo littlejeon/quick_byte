@@ -1,11 +1,16 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize
 
+  def index
+    @user = User.find_by_email(params[:email])
+    binding.pry
+  end
+
   def create
-    # binding.pry
     user = User.find_by_email(params[:email])
+    # binding.pry
     if user && user.authenticate(params[:password])
-      # binding.pry
+      binding.pry
       session[:user_id] = user.id
       redirect_to root_path, :notice => "Welcome back, #{user.name}"
     else

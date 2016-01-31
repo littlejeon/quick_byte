@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+
+<% @user.organizations.each do |x| %>
+  <ul>
+    <li><%= x.name %></li>
+  </ul>
+<%end%>
