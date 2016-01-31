@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
 
-  skip_before_action :authorize, only: [:new, :create]
+  skip_before_action :authorize, only: [:new, :create,]
 
   def new
     @organization = Organization.new
@@ -23,6 +23,8 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    # binding.pry
+
   end
 
   def edit

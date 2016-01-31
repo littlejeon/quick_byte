@@ -1,18 +1,18 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize
+  # skip_before_action :authorize
+  skip_before_action :authorize, only: [:new, :create]
 
   def index
     @user = User.find_by_email(params[:email])
-    binding.pry
+    # @organization = Organization.find(:id)
+    # @organization = Organization.find_by(name:x.name)
   end
 
   def create
     user = User.find_by_email(params[:email])
-    # binding.pry
     if user && user.authenticate(params[:password])
-      binding.pry
       session[:user_id] = user.id
-      redirect_to root_path, :notice => "Welcome back, #{user.name}"
+      redirect_to logged_in_path, :notice => "Welcome back, #{user.name}"
     else
       flash[:notice] = "Invalid email or password"
       render "new"
