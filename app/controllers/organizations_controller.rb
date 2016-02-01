@@ -2,6 +2,10 @@ class OrganizationsController < ApplicationController
 
   skip_before_action :authorize, only: [:new, :create,]
 
+  def index
+    @organizations = Organization.all
+  end
+
   def new
     @organization = Organization.new
   end
@@ -13,7 +17,6 @@ class OrganizationsController < ApplicationController
     user_organization = user.user_organizations.find_by(organization_id: @organization.id)
     user_organization.update(admin: true)
     flash[:notice] = "You just created a group! You are now the admin."
-    binding.pry
     redirect_to @organization
     # @user = User.new(email: params[:organization][:user][:email])
     # if @user.save
@@ -30,8 +33,6 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     # redirect_to '/organizations/@organization.name'
-    # binding.pry
-
   end
 
   def edit

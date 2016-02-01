@@ -1,1 +1,15 @@
 <h1> <%= @organization.name %> </h1>
+
+<h5> Users in this Organization: </h5>
+<ul>
+<% @organization.users.each do |user| %>
+ <li><%= user.name %></li>
+ <% end  %>
+</ul>
+<br>
+<h5> Restaurants in this Organization: </h5>
+<ul>
+ <% @organization.restaurants.each do |restaurant| %>
+  <li><%= restaurant.name %></li>
+  <% end  %>
+</ul>
