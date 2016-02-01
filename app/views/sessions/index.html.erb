@@ -1,0 +1,11 @@
+<h1>Your lunch groups:</h1>
+
+<% @user.organizations.each do |x| %>
+  <ul>
+    <li><%= link_to "#{x.name}", organization_path(x.id) %></li>
+  </ul>
+<%end%>
+
+
+
+
