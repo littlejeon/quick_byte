@@ -26,17 +26,20 @@ class UsersController < ApplicationController
   end
 
   def join
-    user_domain = current_user.email.gsub(/.+@([^.]+.+)/, '\1')
+    user_domain = current_user.domain_name
     organization = Organization.find(params[:user][:organizations])
-    domains = organization.domains.join(",")
+    domains = organization.domain_names
     if domains.include?(user_domain)
       current_user.organizations << organization
       current_user.save
       redirect_to organization_path(organization), :notice => "Thanks for joining #{organization.name}!"
     else
-      
+      flash[:error] = "In order to join this group you must have"
+        @organization = Organization.find(params[:user][:organizations])
+      @user = current_user
+      render 'join_request'
     end
-  end 
+  end
 
   def add
     @user = current_user

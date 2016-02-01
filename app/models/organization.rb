@@ -4,5 +4,8 @@ class Organization < ActiveRecord::Base
   has_many :restaurants, through: :users
   validates_uniqueness_of :name
   validates_presence_of :name
-end
 
+  def domain_names
+    self.domains.join(", ")
+  end
+end
