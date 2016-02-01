@@ -13,7 +13,12 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    # binding.pry
     restaurant = Restaurant.create(restaurant_params)
+    unless params[:type].empty?
+      type = Type.create(name: params[:type][:name])
+    end
+    type.restaurants << restaurant
     redirect_to restaurant
   end
 
@@ -24,7 +29,7 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.update(restaurant_params)
   end
-  
+
   def destroy
     restaurant = Restaurant.find(params[:id])
     restaurant.destroy

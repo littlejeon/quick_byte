@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20160201154118_set_default_to_admin_in_user_organizations.rb

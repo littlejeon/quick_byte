@@ -14,6 +14,11 @@
   <%= f.url_field :logo_url %>
 </div>
 
+<div class="domain-field">
+  <%= f.label :domains, "Acceptable Domain" %>
+  <%= f.text_field :domains, placeholder:"e.g. @flatironschool.com" %>
+</div>
+
 <%= f.submit "Create Organization" %>
 <% end %>
 

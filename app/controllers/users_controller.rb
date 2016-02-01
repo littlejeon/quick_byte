@@ -23,12 +23,26 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    # binding.pry
   end
 
   def join
-    @user = User.new
-    # @user = User.new(user_params)
+    user_domain = current_user.domain_name
+    organization = Organization.find(params[:user][:organizations])
+    domains = organization.domain_names
+    if domains.include?(user_domain)
+      current_user.organizations << organization
+      current_user.save
+      redirect_to organization_path(organization), :notice => "Thanks for joining #{organization.name}!"
+    else
+      flash[:error] = "In order to join this group you must have"
+        @organization = Organization.find(params[:user][:organizations])
+      @user = current_user
+      render 'join_request'
+    end
+  end
+
+  def add
+    @user = current_user
   end
 
   private

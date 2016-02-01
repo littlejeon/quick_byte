@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get 'logged_in', :to => 'sessions#index'
   get 'join', :to => 'users#join'
   get 'join_plan', :to => 'plans#join_plan'
+  get 'add', :to => 'users#add'
+  post 'join', :to => 'users#join'
+
 end

@@ -5,12 +5,14 @@ class Restaurant < ActiveRecord::Base
   has_many :plans
 
 
+  accepts_nested_attributes_for :type
+
   def average(category)
     category_collection = self.reviews.map do |review|
       if review.send(category)
-         review.send(category)
-    end
-  end.compact
+          review.send(category)
+      end
+    end.compact
 
     unless category_collection.empty?
       sum_of_selection = category_collection.inject { |result, num| result + num }
