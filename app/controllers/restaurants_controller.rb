@@ -17,8 +17,21 @@ class RestaurantsController < ApplicationController
     redirect_to restaurant
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    restaurant = Restaurant.update(restaurant_params)
+  end
+  
+  def destroy
+    restaurant = Restaurant.find(params[:id])
+    restaurant.destroy
+  end
+
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :dietary_needs, :cuisine)
+    params.require(:restaurant).permit(:name, :location, :dietary_needs, :type_id)
   end
 end

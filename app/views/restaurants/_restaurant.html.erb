@@ -1,1 +1,22 @@
 <h1> <%= @restaurant.name %> </h1>
+
+
+  <li> Wait Time: <%= @restaurant.average("wait_time") %> minutes </li>
+  <li> Rating: <%= @restaurant.average("rating") %> </li>
+  <li> Price: $<%= @restaurant.average("price") %> </li>
+
+  <div class="comment">
+    <% @restaurant.reviews.each do |review| %>
+      <% unless (review.user.nil?) || (review.comment.nil?) || (review.comment.empty? )%>
+        <li> Comment by <%= review.user.name %>: <%= review.comment %> </li>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render 'reviews/form', {review: Review.new, restaurant: @restaurant} %>
+  <ul>
+
+    <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+    <%#= link_to "Remove from #{current_user.organization.name}", delete_restaurant_path(@restaurant) %>
+
+</ul>
