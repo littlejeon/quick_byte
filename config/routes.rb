@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get 'signup', :to => 'users#new'
   get 'logged_in', :to => 'sessions#index'
   get 'join', :to => 'users#join'
-
+  get 'join_plan', :to => 'plans#join_plan'
 end

@@ -4,10 +4,11 @@
   <div>
   When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
   Where:<%= plan.restaurant.name %>
-    Users: 
+    Users:
       <% plan.users.each do |user| %>
       <%= user.name %>
+      <%= link_to "Join", join_plan_path, :remote => true, :id =>  "join_plan_link" %>
+
     <% end %>
 <% end %>
 </div>
-
