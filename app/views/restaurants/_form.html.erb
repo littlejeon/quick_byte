@@ -22,6 +22,14 @@
   <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: true  %>
 </div>
 
+<h4>or create a new type </h4>
+<%= fields_for :type do |f|  %>
+<div class="new-type-field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<% end %>
+
 
 <%= f.submit "Create" %>
 <% end %>

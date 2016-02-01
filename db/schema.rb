@@ -24,19 +24,6 @@ ActiveRecord::Schema.define(version: 20160201154118) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.date     "date"
-    t.time     "time"
-    t.datetime "datetime"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "restaurant_id"
-    t.integer  "user_id"
-  end
-
-  add_index "plans", ["restaurant_id"], name: "index_plans_on_restaurant_id", using: :btree
-  add_index "plans", ["user_id"], name: "index_plans_on_user_id", using: :btree
-
   create_table "restaurants", force: :cascade do |t|
     t.string   "location"
     t.string   "cuisine"
@@ -44,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160201154118) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
+    t.string   "image_url"
     t.integer  "type_id"
   end
 
@@ -89,14 +77,16 @@ ActiveRecord::Schema.define(version: 20160201154118) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "organization_id"
   end
 
-  add_foreign_key "plans", "restaurants"
-  add_foreign_key "plans", "users"
+  add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
+
   add_foreign_key "restaurants", "types"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
   add_foreign_key "types", "users"
   add_foreign_key "user_organizations", "organizations"
   add_foreign_key "user_organizations", "users"
+  add_foreign_key "users", "organizations"
 end
