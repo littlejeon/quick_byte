@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create]
+  skip_before_action :authorize, only: [:new, :create, :join]
   before_action :set_user, only: [:show, :edit]
 
   def index
@@ -24,6 +24,11 @@ class UsersController < ApplicationController
       render :new
     end
     # binding.pry
+  end
+
+  def join
+    @user = User.new
+    # @user = User.new(user_params)
   end
 
   private
