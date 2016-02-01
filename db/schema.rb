@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201154118) do
+
+ActiveRecord::Schema.define(version: 20160201155547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +24,25 @@ ActiveRecord::Schema.define(version: 20160201154118) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "plans", force: :cascade do |t|
+    t.date     "date"
+    t.time     "time"
+    t.datetime "datetime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+  end
+
+  add_index "plans", ["restaurant_id"], name: "index_plans_on_restaurant_id", using: :btree
+
+  create_table "plans_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "plan_id", null: false
+  end
+
+  add_index "plans_users", ["plan_id", "user_id"], name: "index_plans_users_on_plan_id_and_user_id", using: :btree
+  add_index "plans_users", ["user_id", "plan_id"], name: "index_plans_users_on_user_id_and_plan_id", using: :btree
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "location"
@@ -54,6 +74,8 @@ ActiveRecord::Schema.define(version: 20160201154118) do
   create_table "types", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
+
+  create_table "schedules", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,7 +104,11 @@ ActiveRecord::Schema.define(version: 20160201154118) do
 
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
+
   add_foreign_key "restaurants", "types"
+
+  add_foreign_key "plans", "restaurants"
+
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
   add_foreign_key "types", "users"

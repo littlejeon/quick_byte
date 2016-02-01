@@ -1,0 +1,28 @@
+
+<h5>Enter your lunch plan to let others know and join</h5>
+
+<%= form_for (@plan) do |f| %>
+
+
+<div class="time-field">
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+</div>
+
+<div class="date-field">
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+</div>
+
+
+<div class="restaurant-field">
+  <%= f.label :restaurant %>
+  <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+
+</div>
+
+
+<%= f.submit "Create Plan" %>
+<% end %>
+
+
