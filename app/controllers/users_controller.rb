@@ -23,12 +23,14 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    # binding.pry
   end
 
   def join
-    @user = User.new
-    # @user = User.new(user_params)
+    binding.pry
+  end 
+
+  def add
+    @user = current_user
   end
 
   private

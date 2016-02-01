@@ -7,24 +7,14 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.create(org_params)
-    user = User.find(session[:user_id])
-    user.organizations << @organization
-    user_organization = user.user_organizations.find_by(organization_id: @organization.id)
+    @organization = Organization.new(org_params)
+    current_user.organizations << @organization
+    user_organization = current_user.user_organizations.find_by(organization_id: @organization.id)
+    @organization.domains << params[:organization][:domains]
     user_organization.update(admin: true)
+    @organization.save
     flash[:notice] = "You just created a group! You are now the admin."
-    binding.pry
     redirect_to @organization
-    # @user = User.new(email: params[:organization][:user][:email])
-    # if @user.save
-
-    #   session[:user_id] = @user.id
-    #   redirect_to @user, :notice => "Thank you for signing up!"
-    # else
-    #   render :new
-    # end
-    # @organization.users << @user
-    # binding.pry
   end
 
   def show
@@ -45,7 +35,7 @@ class OrganizationsController < ApplicationController
   private
 
   def org_params
-    params.require(:organization).permit(:name, :location, :logo_url)
+    params.require(:organization).permit(:name, :location, :logo_url, {:domains => []})
   end
 
 end

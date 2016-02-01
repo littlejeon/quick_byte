@@ -1,0 +1,12 @@
+<h1>Join existing group.</h1>
+
+
+<p>Put a form here with dropdown email extension and email input field</p>
+
+
+<%= form_for(@user, method:"post", url:join_path) do |f| %>
+  <div class = "organization-dropdown-field"> <%= f.label :organizations %>
+   <%= f.collection_select :organizations, Organization.all, :id, :name %>
+  </div>
+  <%= f.submit "Join Organization" %>
+<% end %>

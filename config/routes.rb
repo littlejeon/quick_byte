@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete 'logout', :to => 'sessions#destroy'
   get 'signup', :to => 'users#new'
   get 'logged_in', :to => 'sessions#index'
-  get 'join', :to => 'users#join'
+  get 'add', :to => 'users#add'
+  post 'join', :to => 'users#join'
 
 end
