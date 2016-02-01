@@ -1,5 +1,6 @@
 class Plan < ActiveRecord::Base
-  has_many :users
+  has_many :plans_users
+  has_many :users, through: :plans_users
   belongs_to :restaurant
   belongs_to :organization
 

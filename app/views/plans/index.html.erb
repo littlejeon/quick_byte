@@ -1,7 +1,13 @@
-<% @plans.each do |plan| %>
-<div>
-When:<%= plan.time %>
-Where:<%= plan.restaurant.name %>
+<h1>All The Plans</h1>
 
+<% @plans.each do |plan| %>
+  <div>
+  When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
+  Where:<%= plan.restaurant.name %>
+    Users: 
+      <% plan.users.each do |user| %>
+      <%= user.name %>
+    <% end %>
 <% end %>
 </div>
+

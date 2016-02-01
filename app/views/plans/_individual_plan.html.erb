@@ -1,0 +1,21 @@
+<h2>Individual Plan</h2>
+
+
+
+  <%# if plan.time == Date.current %>
+    Time: <%=   @plan.time %>
+    <br>
+    Restaurant: <%=   @plan.restaurant.name %>
+    <br>
+
+    Users: <%   @plan.users.each do |user|%>
+
+        <%=   user.name %>
+      <%end%>
+  </div>
+  <br>
+
+  <%#end%>
+
+
+
