@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201013313) do
+ActiveRecord::Schema.define(version: 20160201154118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20160201013313) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "plans", force: :cascade do |t|
+    t.date     "date"
+    t.time     "time"
+    t.datetime "datetime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+  end
+
+  add_index "plans", ["restaurant_id"], name: "index_plans_on_restaurant_id", using: :btree
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id", using: :btree
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "location"
@@ -62,9 +75,9 @@ ActiveRecord::Schema.define(version: 20160201013313) do
   create_table "user_organizations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.boolean  "admin"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
   end
 
   add_index "user_organizations", ["organization_id"], name: "index_user_organizations_on_organization_id", using: :btree
@@ -78,6 +91,8 @@ ActiveRecord::Schema.define(version: 20160201013313) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "plans", "restaurants"
+  add_foreign_key "plans", "users"
   add_foreign_key "restaurants", "types"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
