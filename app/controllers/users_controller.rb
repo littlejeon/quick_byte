@@ -26,7 +26,16 @@ class UsersController < ApplicationController
   end
 
   def join
-    binding.pry
+    user_domain = current_user.email.gsub(/.+@([^.]+.+)/, '\1')
+    organization = Organization.find(params[:user][:organizations])
+    domains = organization.domains.join(",")
+    if domains.include?(user_domain)
+      current_user.organizations << organization
+      current_user.save
+      redirect_to organization_path(organization), :notice => "Thanks for joining #{organization.name}!"
+    else
+      
+    end
   end 
 
   def add
