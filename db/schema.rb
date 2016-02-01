@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160201155547) do
 
   # These are extensions that must be enabled in order to support this database
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160201155547) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
-    t.string   "image_url"
     t.integer  "type_id"
   end
 
@@ -71,11 +69,14 @@ ActiveRecord::Schema.define(version: 20160201155547) do
   add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "types", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-
-  create_table "schedules", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,9 +86,9 @@ ActiveRecord::Schema.define(version: 20160201155547) do
   create_table "user_organizations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "admin",           default: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "admin"
   end
 
   add_index "user_organizations", ["organization_id"], name: "index_user_organizations_on_organization_id", using: :btree
@@ -104,11 +105,8 @@ ActiveRecord::Schema.define(version: 20160201155547) do
 
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
-
-  add_foreign_key "restaurants", "types"
-
   add_foreign_key "plans", "restaurants"
-
+  add_foreign_key "restaurants", "types"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
   add_foreign_key "types", "users"
