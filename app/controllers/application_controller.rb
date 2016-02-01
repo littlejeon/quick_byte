@@ -21,4 +21,8 @@ private
     !!current_user
   end
 
+  # def admin
+  #   User_organization.find_by(organization_id: )
+  # end
+
 end
