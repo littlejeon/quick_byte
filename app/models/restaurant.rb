@@ -7,7 +7,6 @@ class Restaurant < ActiveRecord::Base
     category_collection = self.reviews.map do |review|
       if review.send(category)
          review.send(category)
-        #  binding.pry
     end
   end.compact
 

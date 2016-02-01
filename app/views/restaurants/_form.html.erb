@@ -11,16 +11,17 @@
   <%= f.text_field :location %>
 </div>
 
-<div class="cuisine-field">
-  <%= f.label :cuisine %>
-  <%= f.text_field :cuisine %>
-</div>
 
 <div class="dietary-needs-field">
   <%= f.label :dietary_needs %>
   <%= f.text_field :dietary_needs, placeholder: "optional" %>
 </div>
 
-<%= f.submit "Create" %>
+<div class="cuisine-field">
+  <%= f.label :type %>
+  <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: true  %>
+</div>
 
+
+<%= f.submit "Create" %>
 <% end %>
