@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
+  has_many :plans
 
   def average_wait_time
     wait_times = self.reviews.map { |review| review.wait_time }

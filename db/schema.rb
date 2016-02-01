@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128202504) do
+ActiveRecord::Schema.define(version: 20160201031140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20160128202504) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.date     "date"
+    t.time     "time"
+    t.datetime "datetime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+  end
+
+  add_index "plans", ["restaurant_id"], name: "index_plans_on_restaurant_id", using: :btree
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id", using: :btree
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "location"
     t.string   "cuisine"
@@ -31,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160128202504) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
-    t.string   "image_url"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -59,6 +71,8 @@ ActiveRecord::Schema.define(version: 20160128202504) do
 
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
+  add_foreign_key "plans", "restaurants"
+  add_foreign_key "plans", "users"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
   add_foreign_key "users", "organizations"

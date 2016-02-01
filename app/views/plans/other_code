@@ -1,0 +1,4 @@
+<div class="restaurant-field">
+  <%= f.label :restaurant %>
+  <%= f.text_field :restaurant %>
+</div>
