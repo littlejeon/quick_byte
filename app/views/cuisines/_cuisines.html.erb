@@ -1,8 +1,8 @@
 <h1> Types of Food </h1>
 
 <ul>
-  <% @types.each do |type| %>
-    <li> <%= link_to type.name, type_path(type) %> </li>
+  <% @cuisines.each do |cuisine| %>
+    <li> <%= link_to cuisine.name, cuisine_path(cuisine) %> </li>
   <% end %>
-  
+
 </ul>

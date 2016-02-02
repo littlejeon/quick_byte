@@ -1,10 +1,10 @@
-# User.create(name: "Asia", email: "asialindsay@gmail.com", password: "123456")
-# User.create(name: "Keren", email: "kerenlerner@gmail.com", password: "123456" )
-# User.create(name: "Antoin", email: "antoinfive@gmail.com", password: "123456")
-# User.create(name: "Sophie", email: "sophie@learn.com", password: "123456")
-# User.create(name: "Josh", email: "josh@flatironschool.com", password: "123456")
-# User.create(name: "Steven", email: "nunabiz@learn.com", password: "123456")
-#
+User.create(name: "Asia", email: "asialindsay@gmail.com", password: "123456")
+User.create(name: "Keren", email: "kerenlerner@gmail.com", password: "123456" )
+User.create(name: "Antoin", email: "antoinfive@gmail.com", password: "123456")
+User.create(name: "Sophie", email: "sophie@learn.com", password: "123456")
+User.create(name: "Josh", email: "josh@flatironschool.com", password: "123456")
+User.create(name: "Steven", email: "nunabiz@learn.com", password: "123456")
+
 
 Restaurant.create(name: "Sophie's Cuban", location: "96 Chambers Street, New York, New York 10007", dietary_needs: "all")
 Restaurant.create(name: "Chipotle", location: "96 Chambers Street, New York, New York 10007", dietary_needs: "all")
@@ -20,9 +20,9 @@ Organization.create(name: "Genius", location: "12 Broadway Lane, New York, New Y
 
 
 
-# Cuisine.create(name: "Latin")
-# Cuisine.create(name: "Mexican")
-# Cuisine.create(name: "American")
-# Cuisine.create(name: "Japanese")
-# Cuisine.create(name: "Chinese")
-# Cuisine.create(name: "Italian")
+Cuisine.create(name: "Latin")
+Cuisine.create(name: "Mexican")
+Cuisine.create(name: "American")
+Cuisine.create(name: "Japanese")
+Cuisine.create(name: "Chinese")
+Cuisine.create(name: "Italian")

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :plans
 
-  resources :types
+  resources :cuisines
 
   get 'login', :to => 'sessions#new'
   delete 'logout', :to => 'sessions#destroy'

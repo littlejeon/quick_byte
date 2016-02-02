@@ -18,13 +18,13 @@
 </div>
 
 <div class="cuisine-field">
-  <%= f.label :type %>
-  <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: true  %>
+  <%= f.label :cuisine %>
+  <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, include_blank: true  %>
 </div>
 
 <h4>or create a new type </h4>
-<%= fields_for :type do |f|  %>
-<div class="new-type-field">
+<%= fields_for :cuisine do |f|  %>
+<div class="new-cuisine-field">
   <%= f.label :name %>
   <%= f.text_field :name %>
 </div>
