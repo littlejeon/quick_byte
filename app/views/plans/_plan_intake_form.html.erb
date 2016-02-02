@@ -3,6 +3,10 @@
 
 <%= form_for (@plan) do |f| %>
 
+<div class="name-field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
 
 <div class="time-field">
   <%= f.label :time %>
@@ -14,15 +18,11 @@
   <%= f.date_select :date %>
 </div>
 
-
 <div class="restaurant-field">
   <%= f.label :restaurant %>
   <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
 
 </div>
 
-
 <%= f.submit "Create Plan" %>
 <% end %>
-
-

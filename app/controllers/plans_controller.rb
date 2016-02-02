@@ -29,6 +29,6 @@ class PlansController < ApplicationController
 
   private
   def plans_params
-    params.require(:plan).permit(:time, :restaurant_id, :restaurant)
+    params.require(:plan).permit(:name, :time, :restaurant_id, :restaurant)
   end
 end
