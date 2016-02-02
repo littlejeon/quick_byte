@@ -1,11 +1,11 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
-  belongs_to :type
+  belongs_to :cuisine
   has_many :plans
 
 
-  accepts_nested_attributes_for :type
+  accepts_nested_attributes_for :cuisine
 
   def average(category)
     category_collection = self.reviews.map do |review|

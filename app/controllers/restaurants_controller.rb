@@ -15,10 +15,10 @@ class RestaurantsController < ApplicationController
   def create
     # binding.pry
     restaurant = Restaurant.create(restaurant_params)
-    unless params[:type].empty?
-      type = Type.create(name: params[:type][:name])
+    unless params[:cuisine].empty?
+      cuisine = Cuisine.create(name: params[:cuisine][:name])
     end
-    type.restaurants << restaurant
+    cuisine.restaurants << restaurant
     redirect_to restaurant
   end
 
@@ -37,6 +37,6 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :dietary_needs, :type_id)
+    params.require(:restaurant).permit(:name, :location, :dietary_needs, :cuisine_id)
   end
 end

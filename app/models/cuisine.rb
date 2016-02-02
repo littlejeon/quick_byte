@@ -1,4 +1,4 @@
-class Type < ActiveRecord::Base
+class Cuisine < ActiveRecord::Base
   has_many :users
   has_many :restaurants
 

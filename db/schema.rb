@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201170324) do
+ActiveRecord::Schema.define(version: 20160201234616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cuisines", ["user_id"], name: "index_cuisines_on_user_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
@@ -51,11 +60,10 @@ ActiveRecord::Schema.define(version: 20160201170324) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
-    t.string   "image_url"
-    t.integer  "type_id"
+    t.integer  "cuisine_id"
   end
 
-  add_index "restaurants", ["type_id"], name: "index_restaurants_on_type_id", using: :btree
+  add_index "restaurants", ["cuisine_id"], name: "index_restaurants_on_cuisine_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
@@ -75,15 +83,6 @@ ActiveRecord::Schema.define(version: 20160201170324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "types", ["user_id"], name: "index_types_on_user_id", using: :btree
 
   create_table "user_organizations", force: :cascade do |t|
     t.integer  "user_id"
@@ -107,11 +106,11 @@ ActiveRecord::Schema.define(version: 20160201170324) do
 
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
+  add_foreign_key "cuisines", "users"
   add_foreign_key "plans", "restaurants"
-  add_foreign_key "restaurants", "types"
+  add_foreign_key "restaurants", "cuisines"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
-  add_foreign_key "types", "users"
   add_foreign_key "user_organizations", "organizations"
   add_foreign_key "user_organizations", "users"
   add_foreign_key "users", "organizations"
