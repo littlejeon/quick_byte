@@ -1,0 +1,31 @@
+<h1>My dashboard</h1>
+
+<%= link_to "Public bio", user_path(current_user) %>
+
+<!--
+- find a way to attach restaurants to dashboard
+- delete the old stuff from sessions controller?
+- public profile- edit button for text and photo
+- put a leave button next to group listed on this page. With alert "Are you sure?"
+-->
+
+<h2>Your plans</h2>
+<% @user.plans.each do |plan| %>
+  <ul>
+    <li><%= link_to "#{plan.name}", plan_path(plan.id) %></li>
+  </ul>
+<%end%>
+
+<h2>Your organizations</h2>
+<% @user.organizations.each do |organization| %>
+  <ul>
+    <li><%= link_to "#{organization.name}", organization_path(organization.id) %></li>
+  </ul>
+<%end%>
+
+<h2>Your reviews</h2>
+<% @user.restaurants.each do |restaurant| %>
+  <ul>
+    <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></li>
+  </ul>
+<%end%>
