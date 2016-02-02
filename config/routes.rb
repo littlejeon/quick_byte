@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   get 'add', :to => 'users#add'
   post 'join', :to => 'users#join'
   get 'dashboard', :to =>'users#dashboard'
-
+  get '/:token/confirm_email/:id', :to => "organizations#confirm_email", as: '/confirm_email'
 
 end

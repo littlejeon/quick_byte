@@ -24,6 +24,22 @@ class User < ActiveRecord::Base
       self.email.gsub(/.+@([^.]+.+)/, '\1')
     end
 
+    def set_confirmation_token
+      if self.confirm_token.blank?
+         self.confirm_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
+
+    def is_member?(organization)
+      self.organizations.include?(organization)
+    end
+
+
+    private
+    def email_activate
+      self.email_confirmed = true
+      self.confirm_token = nil
+    end
 
 
 
