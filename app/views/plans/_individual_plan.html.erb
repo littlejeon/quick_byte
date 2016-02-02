@@ -1,8 +1,10 @@
-<h2>Individual Plan</h2>
+<h2>Plan details</h2>
 
 
 
   <%# if plan.time == Date.current %>
+    Name: <%=   @plan.name %>
+    <br>
     Time: <%=   @plan.time %>
     <br>
     Restaurant: <%=   @plan.restaurant.name %>
@@ -16,6 +18,3 @@
   <br>
 
   <%#end%>
-
-
-

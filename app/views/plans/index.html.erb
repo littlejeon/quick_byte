@@ -2,8 +2,9 @@
 
 <% @plans.each do |plan| %>
   <div>
+  Name:<%= plan.name %>  
   When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
-  Where:<%= plan.restaurant.name %>
+  Where:<%= plan.restaurant %>
     Users:
       <% plan.users.each do |user| %>
       <%= user.name %>
