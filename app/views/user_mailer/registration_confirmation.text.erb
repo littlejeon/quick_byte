@@ -1,0 +1,6 @@
+Hi <%= @user.name %>,
+
+Thanks for registering! To confirm your registration click the URL below.
+
+
+<%= user_url(@user.send('confirmation_token'), host: 'http://lvh.me:3000/') %>

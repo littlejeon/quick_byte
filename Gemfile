@@ -48,3 +48,5 @@ end
 gem 'puma'
 gem 'rails_12factor'
 gem 'pry-rails'
+gem 'figaro'
+gem 'rest-client'

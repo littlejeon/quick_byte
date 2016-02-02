@@ -30,14 +30,29 @@ class UsersController < ApplicationController
     organization = Organization.find(params[:user][:organizations])
     domains = organization.domain_names
     if domains.include?(user_domain)
-      current_user.organizations << organization
-      current_user.save
-      redirect_to organization_path(organization), :notice => "Thanks for joining #{organization.name}!"
+      UserMailer.registration_confirmation(current_user).deliver
+      flash[:success] = "Please confirm your email address to continue"
+        if current_user.email_confirmed
+          current_user.organizations << organization
+          current_user.save
+          redirect_to organization_path(organization), :notice => "Thanks for joining #{organization.name}!"
     else
       flash[:error] = "In order to join this group you must have"
         @organization = Organization.find(params[:user][:organizations])
-      @user = current_user
-      render 'join_request'
+        @user = current_user
+        render 'join_request'
+      end
+    end
+  end
+
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      redirect_to organization_path
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
     end
   end
 

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authorize
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :admin
 
 
 private
@@ -21,8 +21,11 @@ private
     !!current_user
   end
 
-  # def admin
-  #   User_organization.find_by(organization_id: )
-  # end
+  def admin
+    if current_user.user_organizations.admin
+       return current_user
+     end
+  end
+
 
 end

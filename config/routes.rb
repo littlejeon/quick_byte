@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   get 'join_plan', :to => 'plans#join_plan'
   get 'add', :to => 'users#add'
   post 'join', :to => 'users#join'
-
+  get 'confirm_email', :to => "organizations#confirm_email"
 end
