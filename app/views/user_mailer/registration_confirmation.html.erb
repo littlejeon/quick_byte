@@ -1,0 +1,12 @@
+Hi <%= @user.name %>,
+
+Thanks for registering! To confirm your registration click the URL below.
+
+<%=  link_to "confirm", confirm_email_url(@user.confirm_token, host: "http://lvh.me:3000")%>
+
+<%#=link_to "confirm", confirm_email_url(@user.send('confirmation_token'))%>
+<!-- <a href="http://lvh.me:3000/confirm_email">CONFIRM</a> -->
+<%#=link_to "CONFIRM", confirm_email_url(host: 'http://lvh.me:3000/')%>
+<%#=confirm_email_path(host: 'http://lvh.me:3000/')%>
+
+<%#= user_url(@user.send('confirmation_token'), host: 'http://lvh.me:3000/') %>

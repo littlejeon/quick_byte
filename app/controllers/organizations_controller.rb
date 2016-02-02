@@ -10,6 +10,19 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
+  def confirm_email
+    binding.pry
+    user = User.find_by_confirm_token(params[:id])
+    # organization = Organization.find(params[:user][:organizations])
+    if user
+       user.send('email_activate')
+      redirect_to organization_path
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
+  end
+
   def create
     @organization = Organization.new(org_params)
     current_user.organizations << @organization

@@ -10,3 +10,8 @@
   </div>
   <%= f.submit "Join Organization" %>
 <% end %>
+
+<% if flash[:success]  %>
+<%= flash[:success]  %>
+
+<% end %>
