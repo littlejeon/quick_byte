@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
-
-  skip_before_action :authorize, only: [:new, :create,]
+  # before_action :is_member?, only: [:join, :show, :edit, :update]
+  skip_before_action :authorize, only: [:new, :create]
 
   def index
     @organizations = Organization.all
@@ -11,12 +11,13 @@ class OrganizationsController < ApplicationController
   end
 
   def confirm_email
-    binding.pry
-    user = User.find_by_confirm_token(params[:id])
-    # organization = Organization.find(params[:user][:organizations])
+    user = User.find_by_confirm_token(params[:token])
+    organization = Organization.find(params[:id])
     if user
        user.send('email_activate')
-      redirect_to organization_path
+       user.save(validate: false)
+       organization.users << user
+       redirect_to organization_path
     else
       flash[:error] = "Sorry. User does not exist"
       redirect_to root_url

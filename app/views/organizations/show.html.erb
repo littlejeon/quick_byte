@@ -1,2 +1,6 @@
+<% if current_user.is_member?(@organization) %>
 <%= render @organization %>
 <%= link_to "Edit Organization", edit_organization_path %>
+<% else  %>
+"You must be part of this organization to view it"
+<%end%>
