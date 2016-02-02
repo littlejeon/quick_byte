@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
 
-  skip_before_action :authorize, only: [:new, :create,]
+  skip_before_action :authorize, only: [:new, :create]
 
   def index
     @organizations = Organization.all
@@ -31,13 +31,15 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    @organization = Organization.update(org_params)
+    # current_organization = Organization.find(params[:id])
+    # @organization = current_organization.update_attributes(org_params)
+    # redirect_to @organization
   end
 
   private
 
   def org_params
-    params.require(:organization).permit(:name, :location, :logo_url, {:domains => []})
+    params.require(:organization).permit(:name, :location, :logo_url, :domains => [])
   end
 
 end
