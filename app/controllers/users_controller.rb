@@ -45,8 +45,21 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+
   def dashboard
     @user = current_user
+
+  def edit
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user, :notice => "Your settings have been updated!"
+      # Handle a successful update.
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -56,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :email)
+    params.require(:user).permit(:name, :password, :password_confirmation, :email, :avatar)
   end
 
 end
