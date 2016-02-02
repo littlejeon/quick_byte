@@ -9,7 +9,7 @@
        <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "#{plan.id}", :method => 'DELETE'  %>
 
   When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
-  Where:<%= plan.restaurant %>
+  Where:<%= plan.restaurant.name %>
     Users:
       <% plan.users.each do |user| %>
       <%= user.name %>
