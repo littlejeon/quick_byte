@@ -12,3 +12,10 @@
     <%= link_to "Sign In", login_path %>
   <%end%>
 </div>
+
+<% if logged_in? %>
+  <%= image_tag current_user.avatar.url(:small) %>
+  <%= current_user.name %>
+  <%= link_to "Edit", edit_user_path(@user) %>
+<%end%>
+
