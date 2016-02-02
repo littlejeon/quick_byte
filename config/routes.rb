@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   get 'signup', :to => 'users#new'
   get 'logged_in', :to => 'sessions#index'
   get 'join', :to => 'users#join'
-  get 'join_plan', :to => 'plans#join_plan'
+  get '/:id/join-plan', :to => 'plans#join_plan', :as => 'join-plan'
+  delete '/:id/leave_plan', :to => 'plans#leave_plan', :as => 'leave-plan'
   get 'add', :to => 'users#add'
   post 'join', :to => 'users#join'
   get 'dashboard', :to =>'users#dashboard'
+
 
 end

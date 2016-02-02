@@ -1,0 +1,18 @@
+// $('#join_plan_link').click(function() {
+  //  alert("You are in");
+  //)};
+
+$("#<%=@plan.id%>").html('You are out!');
+$("#<%=@plan.id%>").html(showUSERS);
+
+
+
+var showUSERS= '<div class="restaurant_plan"><%= escape_javascript(@plan.restaurant) %></div>';
+
+
+
+
+
+
+
+
