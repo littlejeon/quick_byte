@@ -19,12 +19,30 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
-  def join_plan
+  def leave_plan
+
     respond_to do |format|
       format.html
       format.js {}
     end
+    #binding.pry
+    @plan = Plan.find(params[:id])
+    @plan.users.delete(current_user)
+
+
+
+  end
+
+  def join_plan
+
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
+    #binding.pry
+    @plan = Plan.find(params[:id])
     @plan.users << current_user
+
   end
 
   private

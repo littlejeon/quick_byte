@@ -2,12 +2,14 @@
 
 <% @plans.each do |plan| %>
   <div>
+      <%= link_to "Join", join_plan_path(plan), remote: true, :id => "#{plan.id}"%>
+       <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "#{plan.id}", :method => 'DELETE'  %>
+  
   When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
   Where:<%= plan.restaurant.name %>
     Users:
       <% plan.users.each do |user| %>
       <%= user.name %>
-      <%= link_to "Join", join_plan_path, :remote => true, :id =>  "join_plan_link" %>
 
     <% end %>
 <% end %>
