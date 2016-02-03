@@ -27,7 +27,12 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    restaurant = Restaurant.update(restaurant_params)
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to @restaurant, :notice => "Your review has been updated!"
+    else
+      render 'edit'
+    end
   end
 
   def destroy

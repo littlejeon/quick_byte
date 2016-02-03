@@ -6,12 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :authorize
   helper_method :current_user, :logged_in?, :admin, :is_member?, :has_avatar?
 
-
-
 private
 
   def authorize
-    redirect_to root_path, notice: "Log in to edit or delete your post" unless logged_in?
+    redirect_to root_path, notice: "Sign up or log in" unless logged_in?
   end
 
   def current_user
@@ -21,7 +19,6 @@ private
   def logged_in?
     !!current_user
   end
-
 
   def has_avatar?
     current_user.avatar_file_name != nil
@@ -34,10 +31,7 @@ private
        return current_user
      end
   end
-
   # def is_member?(organization)
   #   self.organizations.include?(organization)
   # end
-
-
 end

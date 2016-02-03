@@ -1,5 +1,5 @@
 <h4>Add a Restaurant</h4>
-<%= form_for(restaurant) do |f| %>
+<%= form_for(@restaurant) do |f| %>
 
 <div class="name-field">
   <%= f.label :name %>
@@ -10,7 +10,6 @@
   <%= f.label :location %>
   <%= f.text_field :location %>
 </div>
-
 
 <div class="dietary-needs-field">
   <%= f.label :dietary_needs %>
