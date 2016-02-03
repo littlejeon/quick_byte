@@ -1,8 +1,7 @@
-// $('#join_plan_link').click(function() {
-  //  alert("You are in");
-  //)};
 
-$("#join-<%=@plan.id%>").replaceWith('You are In!' ).appendClass("joined");
+
+$("#join-<%=@plan.id%>").html('You are In!' );
 $("#plan-users-<%=@plan.id%>").append('<li><%=current_user.name%></li>' );
-
+$("#leave-<%=@plan.id%>").removeClass("hide_this")
+$("#leave-<%=@plan.id%>").show();
 

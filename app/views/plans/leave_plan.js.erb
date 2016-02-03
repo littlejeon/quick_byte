@@ -1,12 +1,10 @@
-// $('#join_plan_link').click(function() {
-  //  alert("You are in");
-  //)};
 
-$("#leave-<%=@plan.id%>").replaceWith('You are out!');
+
+// $("#leave-<%=@plan.id%>").replaceWith('You are out!');
+$("#leave-<%=@plan.id%>").html('You are out!');
 
 $( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
 
-
-//change "you are in" to render join plan link
-
+//$( "#plan-users-<%=@plan.id%> li:contains('You are in!')" ).remove();
+$("#join-<%=@plan.id%>").replaceWith('JOIN LINK' );
 

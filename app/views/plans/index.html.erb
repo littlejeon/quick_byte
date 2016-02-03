@@ -4,7 +4,7 @@
   <%@plans.each do |plan|%>
   <li>Name: <%=plan.name%></li>
   <li>You coming with?   <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}"%>
-      <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :method => 'DELETE'  %>
+      <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this", :method => 'DELETE'  %>
   </li>
   <li>When:<%= plan.time.strftime("%B %d at %I:%M %p")%></li>
   <li>Where:<%= plan.restaurant.name %></li>
