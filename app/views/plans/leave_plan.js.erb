@@ -2,17 +2,11 @@
   //  alert("You are in");
   //)};
 
-$("#<%=@plan.id%>").html('You are out!');
-$("#<%=@plan.id%>").html(showUSERS);
+$("#leave-<%=@plan.id%>").replaceWith('You are out!');
+
+$( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
 
 
-
-var showUSERS= '<div class="restaurant_plan"><%= escape_javascript(@plan.restaurant) %></div>';
-
-
-
-
-
-
+//change "you are in" to render join plan link
 
 
