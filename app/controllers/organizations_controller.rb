@@ -26,6 +26,20 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def grant_access
+    user = User.find_by_confirm_token(params[:token])
+    organization = Organization.find(params[:id])
+    if user
+       user.send('email_activate')
+       user.save(validate: false)
+       organization.users << user
+       redirect_to organization_path
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
+  end
+
   def create
     @organization = Organization.new(org_params)
     current_user.organizations << @organization
@@ -44,6 +58,13 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
+  end
+
+  def remove_user
+    @organization = Organization.find(params[:organization])
+    @user = User.find(params[:id])
+    @organization.users.destroy(@user)
+    redirect_to @organization
   end
 
   def update

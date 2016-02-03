@@ -21,8 +21,11 @@ Rails.application.routes.draw do
   get '/:id/join-plan', :to => 'plans#join_plan', :as => 'join-plan'
   delete '/:id/leave_plan', :to => 'plans#leave_plan', :as => 'leave-plan'
   get 'add', :to => 'users#add'
-  post 'join', :to => 'users#join'
-  get 'dashboard', :to =>'users#dashboard'
+  post 'join/', :to => 'users#join'
+  get 'dashboard/', :to =>'users#dashboard'
   get '/:token/confirm_email/:id', :to => "organizations#confirm_email", as: '/confirm_email'
+  delete '/:id/remove-user/:organization', :to => 'organizations#remove_user', :as => 'remove_user'
+  post 'request_access/:id', :to => "users#request_access", as: "request_access"
+  get '/:token/grant_access/:id', :to => "organizations#grant_access", as: '/grant_access'
 
 end

@@ -47,10 +47,20 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def request_access
+    organization = Organization.find(params[:id])
+    current_user.set_confirmation_token
+    current_user.save(validate: false)
+    UserMailer.request_access(organization.admin_emails, current_user, organization.id).deliver_now
+    redirect_to organizations_path
+    flash[:success] = "Waiting for Admin to Grant Access. Hold Tight"
+  end
 
   def dashboard
+    # @user = User.find(params[:id])
     @user = current_user
-end
+  end
+
   def edit
   end
 
@@ -58,7 +68,6 @@ end
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to @user, :notice => "Your settings have been updated!"
-      # Handle a successful update.
     else
       render 'edit'
     end
