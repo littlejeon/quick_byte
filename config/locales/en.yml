@@ -25,8 +25,5 @@ en:
        user:
         create: "Sign Up"
         update: "Update"
-       user:
-        create: "Create"
-        update: "Update"
 
 

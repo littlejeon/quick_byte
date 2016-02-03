@@ -47,11 +47,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-
   def dashboard
-    binding.pry
     @user = current_user
-end
+  end
+  
   def edit
   end
 

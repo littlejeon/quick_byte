@@ -7,7 +7,11 @@ class Organization < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
 
-  def domain_names
+  def domain_list
     self.domains.join(", ")
+  end
+
+  def domain_list=(domain_list)
+    self.domains = domain_list.split(", ")
   end
 end

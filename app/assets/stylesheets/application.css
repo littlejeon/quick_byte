@@ -35,8 +35,8 @@ h1,h2,h3,h4,h5,h6{
 
 .sessions{
   width:500px;
-  margin-left:auto;
-  margin-right:auto;
+/*  margin-left:auto;
+  margin-right:auto;*/
   background:#0db2d9;
   padding:30px;
   margin-top:30px;
