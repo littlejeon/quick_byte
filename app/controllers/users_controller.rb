@@ -47,7 +47,6 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    binding.pry
     @user = current_user
   end
 
@@ -56,7 +55,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    binding.pry
     if @user.update_attributes(user_params)
       redirect_to @user, :notice => "Your settings have been updated!"
       # Handle a successful update.
@@ -66,7 +64,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def set_user
     @user = User.find(params[:id])
   end
