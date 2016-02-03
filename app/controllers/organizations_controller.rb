@@ -27,12 +27,10 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(org_params)
+    @organization = Organization.create(org_params)
     current_user.organizations << @organization
     user_organization = current_user.user_organizations.find_by(organization_id: @organization.id)
-    @organization.domains << params[:organization][:domains]
     user_organization.update(admin: true)
-    @organization.save
     flash[:notice] = "You just created a group! You are now the admin."
     redirect_to @organization
   end
