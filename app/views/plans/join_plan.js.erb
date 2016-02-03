@@ -1,12 +1,2 @@
-// $('#join_plan_link').click(function() {
-  //  alert("You are in");
-  //)};
-
-$("#<%=@plan.id%>").replaceWith('You are In!' );
-
-
-
-
-
-
-
+$("#join-<%=@plan.id%>").replaceWith('You are In!' ).appendClass("joined");
+$("#plan-users-<%=@plan.id%>").append('<li><%=current_user.name%></li>' );
