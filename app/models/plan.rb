@@ -3,6 +3,8 @@ class Plan < ActiveRecord::Base
   has_many :users, through: :plans_users
   belongs_to :restaurant
   belongs_to :organization
+  #validates :user, uniqueness: true
+  #validates :user, uniqueness: {message: "already in the plan"}
 
 
   def pretty_time

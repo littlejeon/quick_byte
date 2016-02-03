@@ -12,6 +12,11 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.all
+     respond_to do |format|
+      format.html
+      format.js {}
+    end
+    #render json: @plans
   end
 
   def show
@@ -19,21 +24,26 @@ class PlansController < ApplicationController
   end
 
   def leave_plan
+    @plan = Plan.find(params[:id])
+    @plan.users.delete(current_user)
+    @plan.users
+    @plan.save
+
     respond_to do |format|
       format.html
       format.js {}
     end
-    @plan = Plan.find(params[:id])
-    @plan.users.delete(current_user)
   end
 
   def join_plan
+    @plan = Plan.find(params[:id])
+    @plan.users << current_user
+    @plan.save
+
     respond_to do |format|
       format.html
       format.js {}
     end
-    @plan = Plan.find(params[:id])
-    @plan.users << current_user
   end
 
   def edit
