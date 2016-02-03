@@ -1,13 +1,5 @@
 class SessionsController < ApplicationController
-  # skip_before_action :authorize
   skip_before_action :authorize, only: [:new, :create]
-
-  def index
-    @user = User.find(session[:user_id])
-    # binding.pry
-    # @organization = Organization.find(:id)
-    # @organization = Organization.find_by(name:x.name)
-  end
 
   def create
     user = User.find_by_email(params[:email])
@@ -27,10 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: 'Logged out!'
-  end
-
-  def show
-    @user = User.find(params[:user_id])
   end
 end
 
