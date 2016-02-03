@@ -12,3 +12,8 @@
 
 gmail_username: 'antoinfive@gmail.com'
 gmail_password: 'ohiostate25'
+
+S3_BUCKET_NAME: quickbyte
+
+AWS_ACCESS_KEY_ID: AKIAJN56MLUQ2K36OWBA
+AWS_SECRET_ACCESS_KEY: 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
