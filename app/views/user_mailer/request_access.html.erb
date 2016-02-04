@@ -1,0 +1,7 @@
+Hi Admin,
+
+<%= @user.name %>, would like to join your QuickByte organization.
+
+Click the link below to grant <%= @user.name %> access.
+
+<%=  link_to "Grant Access", grant_access_url(@user.confirm_token, @org, host: "http://lvh.me:3000")%>

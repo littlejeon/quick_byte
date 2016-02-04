@@ -10,4 +10,16 @@ class Organization < ActiveRecord::Base
   def domain_names
     self.domains.join(", ")
   end
+
+  def admins
+    admins = self.user_organizations.where(admin: "true")
+    admins.map { |admin| admin.user_id}
+  end
+
+  def admin_emails
+    self.admins.map do |id|
+      admin = User.find(id)
+      admin.email
+    end
+  end
 end

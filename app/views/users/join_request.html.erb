@@ -7,12 +7,12 @@
   </ul>
   <% end %>
 
-  <%= form_for(@user, method: :post, url: join_path) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email, placeholder: "name@domain.com" %>
-    <%= f.submit "Join" %>
-  <% end %>
+  <%#= form_for(@user, method: :post, url: join_path) do |f| %>
+    <%#= f.label :email %>
+    <%#= f.text_field :email, placeholder: "name@domain.com" %>
+    <%#= f.submit "Join" %>
+  <%#end %>
 
   <br>
-  <%= link_to "Request Access from admin" %>
+  <%= link_to("Request Access from admin", request_access_path(@organization), method: :post) %>
 </p>

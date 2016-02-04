@@ -3,13 +3,17 @@
 <h5> Users in this Organization: </h5>
 <ul>
 <% @organization.users.each do |user| %>
- <li><%= user.name %></li>
+ <li> <%= link_to user.name, user_path(user) %>
+  <% if @organization.admins.include?(current_user.id) %>
+   <%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %>  </li>
+   <% end  %>
  <% end  %>
 </ul>
 <br>
 <h5> Restaurants in this Organization: </h5>
+<p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
 <ul>
  <% @organization.restaurants.each do |restaurant| %>
-  <li><%= restaurant.name %></li>
+  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
   <% end  %>
 </ul>
