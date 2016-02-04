@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def join
     user_domain = current_user.domain_name
     organization = Organization.find(params[:user][:organizations])
+    # binding.pry
     domains = organization.domain_names
     if domains.include?(user_domain)
       current_user.set_confirmation_token

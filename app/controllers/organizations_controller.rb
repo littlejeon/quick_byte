@@ -37,6 +37,8 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @user = UserOrganization.find_by(organization_id: @organization.id)
+    # binding.pry
     # redirect_to '/organizations/@organization.name'
   end
 

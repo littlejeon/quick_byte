@@ -29,11 +29,11 @@ private
 
   # def admin
   #   User_organization.find_by(organization_id: )
-  def admin
-    if current_user.user_organizations.admin
-       return current_user
-     end
-  end
+  # def admin
+  #   if current_user.user_organizations.admin
+  #      return current_user
+  #    end
+  # end
 
   # def is_member?(organization)
   #   self.organizations.include?(organization)

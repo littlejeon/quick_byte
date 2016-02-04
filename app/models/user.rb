@@ -34,6 +34,11 @@ class User < ActiveRecord::Base
       self.organizations.include?(organization)
     end
 
+    def is_admin?(organization)
+      self.user_organizations.find_by(organization_id: organization.id)
+      # binding.pry
+    end
+
 
     private
     def email_activate
