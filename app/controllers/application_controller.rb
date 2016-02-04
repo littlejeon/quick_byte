@@ -24,14 +24,8 @@ private
     current_user.avatar_file_name != nil
   end
 
-  # def admin
-  #   User_organization.find_by(organization_id: )
-  def admin
-    if current_user.user_organizations.admin
-       return current_user
-     end
+  def is_admin?(organization)
+    user_organization = UserOrganization.find_by(organization_id: organization.id)
+    user_organization.admin
   end
-  # def is_member?(organization)
-  #   self.organizations.include?(organization)
-  # end
 end
