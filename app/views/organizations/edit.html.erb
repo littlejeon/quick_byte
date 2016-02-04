@@ -1,2 +1,6 @@
-<h1>Edit your form here:</h1>
-<%= render 'form' %>
+<% if current_user.is_admin?(@organization) %>
+  <h1>Edit your form here:</h1>
+  <%= render 'form' %>
+<% else %>
+  <h4>Sorry! You must be an admin to edit this organization.</h4>
+<% end %>
