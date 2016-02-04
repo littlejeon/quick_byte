@@ -56,3 +56,7 @@ gem 'rails_12factor'
 gem 'pry-rails'
 gem 'figaro'
 gem 'rest-client'
+
+ # for the prettiez
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails'
