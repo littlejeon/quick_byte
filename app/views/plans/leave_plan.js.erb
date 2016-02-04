@@ -1,10 +1,7 @@
-$("#leave-<%=@plan.id%>").replaceWith('You are out!');
-// $("#leave-<%=@plan.id%>").replaceWith('You are out!');
-$("#leave-<%=@plan.id%>").html('You are out!');
+
+$("#plan-status-<%=@plan.id%>").html('You are Out!' );
 
 $( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
 
-//$( "#plan-users-<%=@plan.id%> li:contains('You are in!')" ).remove();
-$("#join-<%=@plan.id%>").replaceWith('JOIN LINK' );
-
-$( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
+$("#leave-<%=@plan.id%>").hide();
+$("#join-<%=@plan.id%>").show();
