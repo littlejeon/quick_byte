@@ -15,3 +15,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require js/jquery-1.11.2.min
+
+//= require js/plugin/jquery.easing
+//= require js/jquery-ui.min
+//= require js/plugin/jquery.flexslider
+//= require js/plugin/background-check.min
+//= require js/plugin/jquery.fitvids
+//= require js/plugin/jquery.viewportchecker
+//= require js/plugin/jquery.stellar.min
+//= require js/plugin/wow.min
+//= require js/plugin/jquery.colorbox-min
+//= require js/plugin/owl.carousel.min
+//= require js/plugin/isotope.pkgd.min
+//= require js/plugin/masonry.pkgd.min
+//= require js/plugin/imagesloaded.pkgd.min
+//= require js/plugin/jPushMenu
+//= require js/plugin/jquery.fs.tipper.min
+//= require js/plugin/mediaelement-and-player.min
+//= require js/theme
+//= require js/navigation
