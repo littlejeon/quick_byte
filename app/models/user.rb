@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :plans_users
   has_many :plans, through: :plans_users
+  # has_many :plans, foreign_key: :host_id STEVEN'S NOTES
+  has_many :hostings, foreign_key: :host_id, class_name: Plan 
   has_many :restaurants, through: :reviews
   has_many :cuisines
   has_secure_password
@@ -11,7 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email
   validates :password, :presence => true,
                        :length => {:within => 6..20}
-                       
+
   has_attached_file :avatar,
     styles: { small: "64x64", med: "100x100", large: "200x200" },
     :default_url => '/assets/default_:style.png'
