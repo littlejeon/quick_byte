@@ -4,7 +4,7 @@
   <!-- From Rails -->
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
-
+ <%= javascript_include_tag "application" %>
 
     <meta charset="utf-8" />
     <title>QuickByte</title>
@@ -81,7 +81,7 @@
 
                 <!-- logo -->
                 <div class="logo">
-                    <a href="home.html">
+                    <a href="#">
                         <img class="l-black" src="/assets/img/logo-black.png" />
                         <img class="l-white" src="/assets/img/logo-white.png" />
                         <img class="l-color" src="/assets/img/logo-color.png" />
@@ -92,6 +92,16 @@
                 <!-- Rightside Menu (Search, Cart, Bart icon) -->
                 <div class="side-menu-btn">
                     <ul>
+                        <!-- Search Icon -->
+                        <li class="">
+                            <% if logged_in? %>
+                              <%= image_tag current_user.avatar.url(:small) %>
+                              <%= current_user.name %>
+                              <%= link_to "Edit", edit_user_path(current_user), :class => "edit-user" %>
+                            <%end%>
+                        </li>
+                        <!-- End Search Icon -->
+
                         <!-- Search Icon -->
                         <li class="">
                             <a class="right-icon search toggle-menu menu-top push-body"><i class="fa fa-search"></i></a>
@@ -153,244 +163,29 @@
                 <nav class='navigation'>
                     <ul>
                         <li>
-                            <a href="home.html">Home</a>
+                            <a href="home.html">Actions</a>
                             <!-- Nav Dropdown -->
                             <ul class="nav-dropdown">
-                                <li class="nav-has-sub">
-                                    <a href='#'>Multi Page</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="home.html">Default</a></li>
-                                        <li><a href="home-video.html">Intro Video</a></li>
-                                        <li><a href="home-youtube.html">Intro Youtube</a></li>
-                                        <li><a href="home-static.html">Intro Static</a></li>
-                                        <li><a href="home-agency-grid.html">Agency Grid</a></li>
-                                        <li><a href="home-agency-masonry.html">Agency Masonry</a></li>
-                                        <li><a href="home-fullwidth-slider.html">Fullwidth Slider</a></li>
-                                        <li><a href="home-text-rotator1.html">Text Rotator1</a></li>
-                                        <li><a href="home-text-rotator2.html">Text Rotator2</a></li>
-                                        <li><a href="home-personal.html">Personal</a></li>
-                                        <li><a href="home-fullscreen.html">Full Screen</a></li>
-                                        <li><a href="home-canvas-pattern.html">Canvas Pattern</a></li>
-                                        <li><a href="home-section-scroll.html">Page Section Scroll</a></li>
-                                        <li><a href="shop-2col.html">Shop</a></li>
-                                        <li><a href="home-coming-soon.html">Comming Soon</a></li>
-                                    </ul>
+                                <li>
+                                    <%= link_to "Join Existing Organization", add_path %>
+                                </li>                                
+                                <li>
+                                    <%= link_to "Create New Organization", new_organization_path %>
                                 </li>
-                                <li class="nav-has-sub">
-                                    <a href="#">One Page</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="onepage.html">Default</a></li>
-                                        <li><a href="onepage-personal.html">Personal</a></li>
-                                        <li><a href="onepage-video.html">Video</a></li>
-                                        <li><a href="onepage-youtube.html">Youtube</a></li>
-                                        <li><a href="onepage-static.html">Static</a></li>
-                                        <li><a href="onepage-fullwidth-slider.html">Fullwidth</a></li>
-                                        <li><a href="onepage-text-rotator1.html">Text Rotator1</a></li>
-                                        <li><a href="onepage-text-rotator2.html">Text Rotator2</a></li>
-                                        <li><a href="onepage-canvas-pattern.html">Canvas Pattern</a></li>
-                                    </ul>
+                                <li>
+                                    <%= link_to "Make A New Plan", new_plan_path %>
                                 </li>
+
                             </ul>
                             <!-- End Nav Dropdown -->
                         </li>
 
-                        <li class="nav-has-sub">
-                            <a>Page</a>
-                            <!-- Nav Dropdown -->
-                            <ul class="nav-dropdown">
-                                <li class="nav-has-sub">
-                                    <a href="#">About Us</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="about-1.html">About 1</a></li>
-                                        <li><a href="about-2.html">About 2</a></li>
-                                        <li><a href="about-3.html">About 3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="#">Service</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="service-1.html">Service 1</a></li>
-                                        <li><a href="service-2.html">Service 2</a></li>
-                                        <li><a href="service-3.html">Service 3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="#">Contact Us</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="contact-1.html">Contact 1</a></li>
-                                        <li><a href="contact-2.html">Contact 2</a></li>
-                                        <li><a href="contact-3.html">Contact 3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="#">Faq</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="faq-1.html">Faq 1</a></li>
-                                        <li><a href="faq-2.html">Faq 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="#">Login / Register</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                        <li><a href="login-register.html">Login / Register</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="pricing.html">Pricing</a></li>
 
-                                <li class="nav-has-sub">
-                                    <a href="#">404 Error</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="404-error-1.html">404 page1</a></li>
-                                        <li><a href="404-error-2.html">404 page2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="sidebar-left.html">Sidebar Left</a></li>
-                                <li><a href="sidebar-right.html">Sidebar Right</a></li>
-                                <li><a href="blank-page.html">Blank Page</a></li>
-
-                            </ul>
-                            <!-- End Nav Dropdown-->
+                        <li>
+                            <%= link_to "Dashboard", dashboard_path %>
                         </li>
                         <li>
-                            <a>Portfolio</a>
-                            <!-- Nav Dropdown -->
-                            <ul class="nav-dropdown">
-
-                                <li class="nav-has-sub">
-                                    <a href='#'>Grid</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-grid-2col.html">2 Columns</a></li>
-                                        <li><a href="portfolio-grid-2col-no_spacing.html">2 Columns no-Spacing</a></li>
-                                        <li><a href="portfolio-grid-3col.html">3 Columns</a></li>
-                                        <li><a href="portfolio-grid-3col-no_spacing.html">3 Columns no-Spacing</a></li>
-                                        <li><a href="portfolio-grid-4col.html">4 Columns</a></li>
-                                        <li><a href="portfolio-grid-4col-no_spacing.html">4 Columns no-Spacing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="">Masonry</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-masonry-2col.html">2 Columns</a></li>
-                                        <li><a href="portfolio-masonry-2col-no_spacing.html">2 Columns no-Spacing</a></li>
-                                        <li><a href="portfolio-masonry-3col.html">3 Columns</a></li>
-                                        <li><a href="portfolio-masonry-3col-no_spacing.html">3 Columns no-Spacing</a></li>
-                                        <li><a href="portfolio-masonry-4col.html">4 Columns</a></li>
-                                        <li><a href="portfolio-masonry-4col-no_spacing.html">4 Columns no-Spacing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="">wide</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-wide-grid.html">Grid</a></li>
-                                        <li><a href="portfolio-wide-grid-no_spacing.html">Grid no-Spacing</a></li>
-                                        <li><a href="portfolio-wide-masonry.html">Masonry</a></li>
-                                        <li><a href="portfolio-wide-masonry-no_spacing.html">Masonry no-Spacing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href='#'>Classical</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-classical-spacing.html">Spacing</a></li>
-                                        <li><a href="portfolio-classical-no_spacing.html">no-Spacing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href='#'>Lightbox</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-lightbox-grid.html">Grid</a></li>
-                                        <li><a href="portfolio-lightbox-masonry.html">Masonry</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="">Single</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="portfolio-single1.html">Single 1</a></li>
-                                        <li><a href="portfolio-single2.html">Single 2</a></li>
-                                        <li><a href="portfolio-single3.html">Single 3</a></li>
-                                        <li><a href="portfolio-single4.html">Single 4</a></li>
-                                        <li><a href="portfolio-single5-slider.html">Single 5 - Slider</a></li>
-                                        <li><a href="portfolio-single6-video.html">Single 6 - Video</a></li>
-                                        <li><a href="portfolio-single7-youtube.html">Single 7 - youtube</a></li>
-                                        <li><a href="portfolio-single8-vimeo.html">Single 8 - vimeo</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <!-- End Nav Dropdown -->
-                        </li>
-                        <li>
-                            <a>Blog</a>
-                            <!-- Nav Dropdown -->
-                            <ul class="nav-dropdown">
-
-                                <li class="nav-has-sub">
-                                    <a href=''>Grid</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="blog-grid-2col.html">2 Columns</a></li>
-                                        <li><a href="blog-grid-2col-sidebar.html">2 Columns - sidebar</a></li>
-                                        <li><a href="blog-grid-3col.html">3 Columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-has-sub">
-                                    <a href="">Masonry</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="blog-masonry-2col.html">2 Columns</a></li>
-                                        <li><a href="blog-masonry-2col-sidebar.html">2 Columns - sidebar</a></li>
-                                        <li><a href="blog-masonry-3col.html">3 Columns</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="">One Columns</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="blog-1col.html">no-sidebar</a></li>
-                                        <li><a href="blog-1col-sidebar.html">with sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-has-sub">
-                                    <a href="">Blog Detail</a>
-                                    <ul class="nav-sub-dropdown">
-                                        <li><a href="blog-single-image-post.html">Image Post</a></li>
-                                        <li><a href="blog-single-slider-post.html">Slider Post</a></li>
-                                        <li><a href="blog-single-video-post.html">Video Post</a></li>
-                                        <li><a href="blog-single-audio-post.html">Audio Post</a></li>
-                                        <li><a href="blog-single-youtube-post.html">Youtube Post</a></li>
-                                        <li><a href="blog-single-vimeo-post.html">Vimeo Post</a></li>
-                                        <li><a href="blog-single-quote-post.html">Quote Post</a></li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                            <!-- End Nav Dropdown -->
-                        </li>
-                        <li>
-                            <a>Elements</a>
-                            <!-- Nav Dropdown -->
-                            <ul class="nav-dropdown">
-                                <li><a href="element-components.html">Components</a></li>
-                                <li><a href="element-tabs-and-accordian.html">Tabs & Accordian</a></li>
-                                <li><a href="element-slider.html">Slider</a></li>
-                                <li><a href="element-team.html">Team</a></li>
-                                <li><a href="element-pricing.html">Pricing</a></li>
-                                <li><a href="element-video-and-audio.html">Video / Audio</a></li>
-                                <li><a href="element-typography.html">Typography</a></li>
-                            </ul>
-                            <!-- End Nav Dropdown -->
-                        </li>
-                        <li>
-                            <a href="">Shop</a>
-                            <!-- Nav Dropdown -->
-                            <ul class="nav-dropdown">
-                                <li class=""><a href="shop-2col.html">2 Columns</a></li>
-                                <li class=""><a href="shop-3col.html">3 Columns</a></li>
-                                <li class=""><a href="shop-4col.html">4 Columns</a></li>
-                                <li class=""><a href="shop-left-sidebar.html">Left Sidebar</a></li>
-                                <li class=""><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                <li class=""><a href="shop-detail.html">Shop Detail</a></li>
-                                <li class=""><a href="shop-checkout.html">Checkout</a></li>
-                            </ul>
-                            <!-- End Nav Dropdown -->
+                            <%= link_to "Log Out", logout_path, method: :delete %>
                         </li>
                     </ul>
                 </nav>
@@ -499,7 +294,7 @@
 
 
     <!-- JS -->
-    <%= javascript_include_tag "application" %>
+   
 
 </body>
 </html>

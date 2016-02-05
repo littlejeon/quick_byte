@@ -1,22 +1,163 @@
-<h1>My dashboard <%= link_to "Public bio", user_path(current_user) %></h1>
+        <!-- CONTENT --------------------------------------------------------------------------------->
 
-<h2>Upcoming plans</h2>
-<% @user.plans.each do |plan| %>
-  <ul>
-    <li><%= link_to "#{plan.name}", plan_path(plan.id) %></li>
-  </ul>
-<%end%>
+       
 
-<h2>Your organizations</h2>
-<% @user.organizations.each do |organization| %>
-  <ul>
-    <li><%= link_to "#{organization.name}", organization_path(organization.id) %></li>
-  </ul>
-<%end%>
 
-<h2>Your reviews</h2>
-<% @user.restaurants.each do |restaurant| %>
-  <ul>
-    <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></li>
-  </ul>
-<%end%>
+        <!-- Sidebar Section -->
+        <section class="ptb ptb-sm-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 mt-xs-30">
+
+                        <div class="sidebar-widget">
+                            <h5>Product Categories</h5>
+                            <hr>
+                            <ul>
+                                <li><a>Photography</a></li>
+                                <li><a>Web Design</a></li>
+                                <li><a>Lifestyle</a></li>
+                                <li><a>Responsive</a></li>
+                                <li><a>MultiPurpose Theme</a></li>
+                                <li><a>Agency</a></li>
+                                <li><a>Portfolio</a></li>
+                                <li><a>Multiprapose</a></li>
+                                <li><a>Multi Page</a></li>
+                                <li><a>One Page</a></li>
+                                <li><a>Flexible</a></li>
+                                <li><a>Clean</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h5>Recent Post</h5>
+                            <hr>
+                            <ul class="widget-post">
+                                <li>
+                                    <a class="widget-post-media">
+                                        <img src="/assets/img/portfolio/21.jpg">
+                                    </a>
+                                    <div class="widget-post-info">
+                                        <h6><a>veritatis et quasi</a></h6>
+                                        <div class="post-meta"><span>March 16, 2015</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="widget-post-media">
+                                        <img src="/assets/img/portfolio/32.jpg">
+                                    </a>
+                                    <div class="widget-post-info">
+                                        <h6><a>Sed fringilla mauris</a></h6>
+                                        <div class="post-meta"><span>March 09, 2015</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="widget-post-media">
+                                        <img src="/assets/img/portfolio/31.jpg">
+                                    </a>
+                                    <div class="widget-post-info">
+                                        <h6><a>harum quidem rerum</a></h6>
+                                        <div class="post-meta"><span>March 04, 2015</span></div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h5>popular Tags</h5>
+                            <hr>
+                            <ul class="widget-tag">
+                                <li><a>Art</a></li>
+                                <li><a>Business</a></li>
+                                <li><a>Design</a></li>
+                                <li><a>Graphic</a></li>
+                                <li><a>fashion</a></li>
+                                <li><a>Model</a></li>
+                                <li><a>Photography</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-9 col-sm-8">
+
+                       <!-- Pricing Table Section -->
+
+                        <section class="ptb ptb-sm-80">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <h3>My Dashboard</h3>
+                                    <p class="lead col-md-8 col-md-offset-2"><%= link_to "Public bio", user_path(current_user) %></p>
+                                </div>
+                                <div class="spacer-60"></div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-30">
+                                        <div class="Pricing-box">
+                                            <div class="price-title spacing-box">
+                                                <h4>Upcoming Plans</h4>
+                                            </div>
+                                            <hr />
+                                            <div class="pricing-features spacing-grid">
+                                              <% @user.plans.each do |plan| %>
+                                                <ul>
+                                                  <li><%= link_to "#{plan.name}", plan_path(plan.id) %></li>
+                                                </ul>
+                                              <%end%>
+                                            </div>
+                                            <hr />
+                                            <div class="spacing-grid">
+                                                <a class="btn btn-md btn-black">Make a new plan</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-30">
+                                        <div class="Pricing-box highlight">
+                                            <div class="price-title spacing-box">
+                                                <h4>Your Organizations</h4>
+                                            </div>
+                                            <hr />
+                                            <div class="pricing-features spacing-grid">
+                                              <% @user.organizations.each do |organization| %>
+                                                <ul>
+                                                  <li><%= link_to "#{organization.name}", organization_path(organization.id) %></li>
+                                                </ul>
+                                              <%end%>
+                                            </div>
+                                            <hr />
+                                            <div class="spacing-grid">
+                                                <a class="btn btn-md btn-black">Create an organization</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-30">
+                                        <div class="Pricing-box">
+                                            <div class="price-title spacing-box">
+                                                <h4>Your Reviews</h4>
+                                            </div>
+                                            <hr />
+                                            <div class="pricing-features spacing-grid">
+                                              <% @user.restaurants.each do |restaurant| %>
+                                                <ul>
+                                                  <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></li>
+                                                </ul>
+                                              <%end%>
+                                            </div>
+                                            <hr />
+                                            <div class="spacing-grid">
+                                                <a class="btn btn-md btn-black">Write a new review</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
+                      <!-- End Pricing Table Section -->
+                    </div><!--END "col-md-9" SECTION -->
+                </div>
+
+            </div>
+        </section>
+        <!-- End Sidebar Section -->
+
+        <!-- End CONTENT ------------------------------------------------------------------------------>
