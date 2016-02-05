@@ -34,5 +34,6 @@
 //= require js/plugin/jPushMenu
 //= require js/plugin/jquery.fs.tipper.min
 //= require js/plugin/mediaelement-and-player.min
+//= require js/plugin/jquery.validate.min
 //= require js/theme
 //= require js/navigation
