@@ -77,19 +77,19 @@
             <div class="container">
 
                 <!-- logo -->
-                <div class="logo">
-                    <a href="home.html">
-                      <h1>Quickbyte.</h1>
+                <div class="logo light-color">
+                    <a href="#">
+                      <h1><%= link_to "Quickbyte.", root_path, {style: 'color:#fff;'} %></h1>
                     </a>
                 </div>
                 <!--End logo-->
 
 
                 <!-- Navigation Menu -->
-                <nav class='navigation'>
+                <nav class='navigation light-color'>
                     <ul>
-                        <li>
-                          <%= link_to "Login or Signup", login_path %>
+                        <li class='light-color'>
+                          <%= link_to "Login or Signup", login_path, {:style=>'color:#FFFFFF;', :class => "light-color"} %>
                         </li>                        
                     </ul>
                 </nav>
@@ -108,8 +108,8 @@
                 <ul class="slides">
                     <li>
                         <img src="/assets/img/full/11.jpg" alt="portfolio" />
-                        <div class="overlay-hero overlay-light">
-                            <div class="container caption-hero dark-color">
+                        <div class="overlay-hero overlay-dark">
+                            <div class="container caption-hero light-color">
                                 <div class="inner-caption">
 
                                     <h2 class="h2">Welcome to QuickByte</h2>
@@ -135,13 +135,13 @@
                     <li>
                         <img src="/assets/img/full/02.jpg" alt="Photography" draggable="false" />
 
-                        <div class="overlay-hero overlay-light">
-                            <div class="container caption-hero dark-color">
+                        <div class="overlay-hero overlay-dark">
+                            <div class="container caption-hero light-color">
                                 <div class="inner-caption">
-                                    <h2 class="h2">One & Mutlipage Theme</h2>
-                                    <p class="lead">We carry a passion for performance marketing</p>
+                                    <h2 class="h2">Even if it's fast it might as well be good.</h2>
+                                    <p class="lead">See peer reviews and wait times.</p>
                                     <br />
-                                    <div><a class="btn btn-md btn-black-line">Read More</a><span class="btn-space-10 xs-hidden"></span><a class="btn btn-md btn-black xs-hidden">Read More</a></div>
+                                    <div><a class="btn btn-md btn-white-line">Read More</a><span class="btn-space-10 xs-hidden"></span><a class="btn btn-md btn-white xs-hidden">Read More</a></div>
                                 </div>
                             </div>
                         </div>
@@ -152,8 +152,8 @@
                         <div class="overlay-hero overlay-dark">
                             <div class="container caption-hero light-color">
                                 <div class="inner-caption">
-                                    <h2 class="h2">Fully Responsive</h2>
-                                    <p class="lead">We carry a passion for performance marketing</p>
+                                    <h2 class="h2">Build a food community</h2>
+                                    <p class="lead">Make lunch plans with your friends or coworkers.</p>
                                 </div>
                             </div>
                         </div>
