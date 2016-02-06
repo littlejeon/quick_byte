@@ -1,23 +1,17 @@
-<h1>All The Plans</h1>
+<br>
+<br>
+<br>
 
-<ul>
-  <%@plans.each do |plan|%>
-  <li>Name: <%=plan.name%></li>
-  <li>You coming with?
-    <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}"%>
-    <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this", :method => 'DELETE'  %><span id="plan-status-<%=plan.id%>"></span>
-    
-  </li>
-  <li>When:<%= plan.time.strftime("%B %d at %I:%M %p")%></li>
-  <li>Where:<%= plan.restaurant.name %></li>
-  <li>Users:</li>
-    <ul id="plan-users-<%=plan.id%>">
-      <% plan.users.each do |user| %>
-        <li><%=user.name%></li>
-      <%end%>
-    </ul>
-    <br>
-    ------------------
-    <br>
-  <%end%>
-</ul>
+<section class="ptb ptb-sm-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 mt-xs-30">
+
+<%= render "plans/all_plans", {plans: @plans} %>
+<%= render "plans/form", {plan: Plan.new } %>
+                    </div>
+                </div>
+            </div>
+</section>            
+
+

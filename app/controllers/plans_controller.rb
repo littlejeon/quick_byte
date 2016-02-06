@@ -5,13 +5,16 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.create(plans_params)
+    #binding.pry
+    @plan = Plan.create(plan_params)
     @plan.users << current_user
     redirect_to @plan
   end
 
   def index
+
     @plans = Plan.all
+    #binding.pry
      respond_to do |format|
       format.html
       format.js {}

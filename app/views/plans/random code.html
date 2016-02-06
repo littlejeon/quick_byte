@@ -1,0 +1,19 @@
+<h1>All The Plans</h1>
+
+<% @plans.each do |plan| %>
+  <div>
+
+  Name:<%= plan.name %>
+
+      <%= link_to "Join", join_plan_path(plan), remote: true, :id => "#{plan.id}"%>
+       <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "#{plan.id}", :method => 'DELETE'  %>
+
+  When:<%= plan.time.strftime("%B %d at %I:%M %p")%>
+  Where:<%= plan.restaurant.name %>
+      <% plan.users.each do |user| %>
+        Users: <div id="plan-users-<%="#{plan.id}"%>">
+          <%= user.name %>
+        </div>
+      <% end %>
+  </div>
+<% end %>

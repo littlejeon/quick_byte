@@ -3,6 +3,7 @@ class Plan < ActiveRecord::Base
   has_many :users, through: :plans_users
   belongs_to :restaurant
   belongs_to :organization
+  #validates_presence_of :time, :date, :restaurant
   #validates :user, uniqueness: true
   #validates :user, uniqueness: {message: "already in the plan"}
 

@@ -61,6 +61,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @plan = Plan.find(params[:id])
   end
 
   def update
