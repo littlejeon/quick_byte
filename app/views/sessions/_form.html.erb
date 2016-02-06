@@ -1,12 +1,29 @@
-<%= form_tag('/sessions', :method =>'post') do %>
+<!-- <form>
+    <div class="form-field-wrapper">
+        <label for="login-email">Email address</label>
+        <input type="email" required="" placeholder="Enter your Email" name="login-email" id="login-email" class="input-sm form-full" aria-required="true">
+    </div>
+    <div class="form-field-wrapper">
+        <label for="login-pass">Password</label>
+        <input type="password" required="" placeholder="Enter your Password" name="login-pass" id="login-pass" class="input-sm form-full" aria-required="true">
+    </div>
+    <button name="submit" id="form-submit" type="submit" class="btn btn-md btn-black">Sign In</button>
+    <a class="float-right">Forgot password?</a>
+</form> -->
 
-  <%= label_tag :email, 'email: ' %><br>
-  <%= text_field_tag :email %><br>
 
-  <%= label_tag :password, 'Password: ' %><br>
-  <%= password_field_tag :password %><br>
+  <%= form_tag sessions_path do %>
 
-  <%= submit_tag 'Log In' %>
+    <div class="email">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, "", :class => 'input-sm form-full' %>
+    </div>
 
-<% end %>
+    <div class="password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", :class => 'input-sm form-full' %>
+    </div>
+
+    <%= submit_tag "SIGN IN", :class => 'btn btn-md btn-black' %>
+  <% end %>
 

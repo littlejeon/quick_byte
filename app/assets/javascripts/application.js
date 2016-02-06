@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 //= require js/jquery-1.11.2.min
-
 //= require js/plugin/jquery.easing
 //= require js/jquery-ui.min
 //= require js/plugin/jquery.flexslider
@@ -34,5 +34,8 @@
 //= require js/plugin/jPushMenu
 //= require js/plugin/jquery.fs.tipper.min
 //= require js/plugin/mediaelement-and-player.min
+//= require js/plugin/jquery.validate.min
 //= require js/theme
 //= require js/navigation
+
+
