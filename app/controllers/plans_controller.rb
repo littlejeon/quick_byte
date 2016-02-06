@@ -5,8 +5,10 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.create(plans_params)
-    @plan.users << current_user
+    @plan = Plan.create(plan_params)
+    @plan.users.name << current_user
+    @plan.host = current_user
+    @plan.save
     redirect_to @plan
   end
 

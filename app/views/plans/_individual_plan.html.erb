@@ -4,9 +4,12 @@
     Name: <%=   @plan.name %><br>
     Time: <%=   @plan.time %><br>
     Restaurant: <%=   @plan.restaurant.name %><br>
-    Users: <%   @plan.users.each do |user|%>
+    Attendees: <%   @plan.users.each do |user|%>
         <%=   user.name %>
     <%end%><br>
+    Host: <%= @plan.host.name %><br>
+    <% if @plan.host == current_user %>
     <%= link_to "Edit plan", edit_plan_path %>
+    <% end %>
   </div>
   <%#end%>
