@@ -14,7 +14,7 @@
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 //= require js/jquery-1.11.2.min
@@ -37,4 +37,5 @@
 //= require js/plugin/jquery.validate.min
 //= require js/theme
 //= require js/navigation
+
 

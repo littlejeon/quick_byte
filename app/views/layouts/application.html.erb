@@ -4,7 +4,7 @@
   <!-- From Rails -->
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
- <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
 
     <meta charset="utf-8" />
     <title>QuickByte</title>
@@ -82,9 +82,7 @@
                 <!-- logo -->
                 <div class="logo">
                     <a href="#">
-                        <img class="l-black" src="/assets/img/logo-black.png" />
-                        <img class="l-white" src="/assets/img/logo-white.png" />
-                        <img class="l-color" src="/assets/img/logo-color.png" />
+                        <h1><%= link_to "QuickByte.", root_path %></h1>
                     </a>
                 </div>
                 <!--End logo-->
@@ -92,69 +90,16 @@
                 <!-- Rightside Menu (Search, Cart, Bart icon) -->
                 <div class="side-menu-btn">
                     <ul>
-                        <!-- Search Icon -->
+                        <!-- Avatar -->
                         <li class="">
                             <% if logged_in? %>
-                              <%= image_tag current_user.avatar.url(:small) %>
+                              <%= image_tag current_user.avatar.url(:thumb) %>
                               <%= current_user.name %>
                               <%= link_to "Edit", edit_user_path(current_user), :class => "edit-user" %>
                             <%end%>
                         </li>
-                        <!-- End Search Icon -->
+                        <!-- End Avatar Icon -->
 
-                        <!-- Search Icon -->
-                        <li class="">
-                            <a class="right-icon search toggle-menu menu-top push-body"><i class="fa fa-search"></i></a>
-                        </li>
-                        <!-- End Search Icon -->
-
-                        <!-- Cart Icon -->
-                        <li class="">
-                            <a href="shop-checkout.html" class="right-icon cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="cart-notification">2</span>
-                            </a>
-                            <!-- Cart Dropdown List -->
-                            <div class="cart-dropdown">
-                                <ul class="cart-list">
-                                    <li class="light-color">
-                                        <a class="close-cart-list"><i class="fa fa-times-circle"></i></a>
-                                        <div class="media">
-                                            <a class="pull-left">
-                                                <img src="/assets/img/product/02.jpg" alt="fashion" /></a>
-                                            <div class="media-body">
-                                                <h6><a>Fashion Model New /01</a></h6>
-                                                <p>$399.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="light-color">
-                                        <a class="close-cart-list"><i class="fa fa-times-circle"></i></a>
-                                        <div class="media">
-                                            <a class="pull-left">
-                                                <img src="/assets/img/product/06.jpg" alt="fashion" /></a>
-                                            <div class="media-body">
-                                                <h6><a>Fashion Model New /02</a></h6>
-                                                <p>$399.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <p class="cart-sub-totle"><span class="pull-left">Cart Subtotal</span><span class="pull-right totle"><strong>$798.00</strong></span></p>
-                                <div class="clearfix"></div>
-                                <div class="cart-checkout-btn">
-                                    <a href="shop-checkout.html" class="btn btn-md btn-color-b form-full checkout">Checkout</a>
-                                </div>
-                            </div>
-                            <!-- End Cart Dropdown List -->
-                        </li>
-                        <!-- End Cart Icon -->
-
-                        <!--Sidebar Menu Icon-->
-                        <li class="">
-                            <a class="right-icon bar-icon toggle-menu menu-right push-body"><i class="fa fa-bars"></i></a>
-                        </li>
-                        <!-- End Sidebar Menu Icon-->
                     </ul>
                 </div>
                 <!-- End Rightside Menu -->
@@ -163,14 +108,14 @@
                 <nav class='navigation'>
                     <ul>
                         <li>
-                            <a href="home.html">Actions</a>
+                            <a href="#">Actions</a>
                             <!-- Nav Dropdown -->
                             <ul class="nav-dropdown">
                                 <li>
-                                    <%= link_to "Join Existing Organization", add_path %>
+                                    <%= link_to "Join Organization", add_path %>
                                 </li>                                
                                 <li>
-                                    <%= link_to "Create New Organization", new_organization_path %>
+                                    <%= link_to "Create Organization", new_organization_path %>
                                 </li>
                                 <li>
                                     <%= link_to "Make A New Plan", new_plan_path %>
@@ -195,7 +140,19 @@
         </header>
         <!-- END HEADER -->
 
-    <%= yield %>
+
+        <!-- Blank Section -->
+
+        <section class="ptb ptb-sm-80 container">
+
+            <!-- Remove tags----(<br />) -->
+            <%= yield %>
+            <!-- Remove tags -->
+
+        </section>
+        <!-- End Blank Section -->
+
+        <!-- End CONTENT ------------------------------------------------------------------------------>
 
         <!-- FOOTER -->
         <footer class="footer pt-80">

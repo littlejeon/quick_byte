@@ -27,12 +27,14 @@
       </div>
     </div>
 
-    <div class="form-field-wrapper">
-      <div class = "avatar">
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar, :class => 'input-sm form-full', :class => 'btn btn-md btn-black' %>
+    <% if logged_in? %>
+      <div class="form-field-wrapper">
+        <div class = "avatar">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar, :class => 'input-sm form-full' %>
+        </div>
       </div>
-    </div>
+    <%end%>
 
     <div class="form-field-wrapper">
       <div class = "email">
@@ -41,19 +43,23 @@
       </div>
     </div>
 
-    <div class="form-field-wrapper">
-      <div class = "position">
-        <%= f.label :position %>
-        <%= f.text_field :position, :class => 'input-sm form-full' %>
+    <% if logged_in? %>
+      <div class="form-field-wrapper">
+        <div class = "position">
+          <%= f.label :position %>
+          <%= f.text_field :position, :class => 'input-sm form-full' %>
+        </div>
       </div>
-    </div>
+    <%end%>
 
-    <div class="form-field-wrapper">
-      <div class = "bio">
-        <%= f.label :bio %>
-        <%= f.text_area :bio, :class => 'input-sm form-full' %>
+    <% if logged_in? %>
+      <div class="form-field-wrapper">
+        <div class = "bio">
+          <%= f.label :bio %>
+          <%= f.text_area :bio, :class => 'input-sm form-full' %>
+        </div>
       </div>
-    </div>
+    <%end%>
 
     <div class="form-field-wrapper">
       <div class = "password">
