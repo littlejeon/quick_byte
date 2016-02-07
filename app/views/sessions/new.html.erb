@@ -1,21 +1,41 @@
-<div class="sessions">
-  <h1>SIGN IN</h1>
-  <%= form_tag sessions_path do %>
-    <div class="name">
-      <%= label_tag :name %>
-      <%= text_field_tag :name %>
-    </div>
+        <!-- CONTENT --------------------------------------------------------------------------------->
 
-    <div class="email">
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
-    </div>
+        <!-- Intro Section -->
+<!--         <section class="inner-intro inner-intro-small">
+            <div class="container">
+                <div class="row title">
+                    <h2 class="h2">Login</h2>
+                    <div class="page-breadcrumb">
+                        <a>Home</a>/<span>Login</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div> -->
+        <!-- End Intro Section -->
 
-    <div class="password">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
 
-    <%= submit_tag "SIGN IN" %>
-  <% end %>
-</div>
+
+        <!-- Login Section -->
+        <section id="Pricing" class="ptb ptb-sm-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="border-box">
+                            <h4>Already registered?</h4>
+                            <%= render 'form' %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border-box">
+                            <h4>Create an account</h4>
+                            <p>Please enter your email address to create an account.</p>
+                            <%= render 'users/form', {user: User.new} %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Login Section -->
+
+        <!-- End CONTENT ------------------------------------------------------------------------------>
