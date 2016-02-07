@@ -15,7 +15,7 @@
                               </li>
                               <li><span class="bold-text">When:</span><%= plan.time.strftime("%B %d at %I:%M %p")%></li>
                               <li><span class="bold-text">Where:</span><%= plan.restaurant.name %></li>
-                              <li><span class="bold-text">Users:</span></li>
+                              <li><span class="bold-text">Who's In Already?</span></li>
                                 <ul id="plan-users-<%=plan.id%>">
                                   <% plan.users.each do |user| %>
                                     <li><%=user.name%></li>
@@ -27,22 +27,11 @@
                                   <div class="spacing-grid">
                                          <%plans.each do |plan|%>
                                           <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}", :class => "btn btn-md btn-black"%>
-                                                <a class="btn btn-md btn-black">Join Plan</a>
+                                           <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this btn btn-md btn-black", :method => 'DELETE'  %>
+                                                
                                           <%end%>
+                                          <a class="btn btn-md btn-black">Join</a>
                                             </div>
                           </div>
                           
                         </div>
-
-
-    
-                                           
-                                            <hr />
-                                            <div class="pricing-features spacing-grid">
-                                              
-                                            </div>
-                                            <hr />
-                                          
-                                        </div>
-
-

@@ -4,8 +4,13 @@
 
 
                         <div class="sidebar-widget">
-                            <h5>Create a New Plan</h5>
+                          <div class="Pricing-box">
+                              <div class="price-title spacing-box">
+                                <h4>Create a New Plan</h4>
+                              </div>
+                    
                             <hr>
+                            <div class = "sidebar-form"
                             <%= form_for(plan) do |f| %>
 
                               <div class="name-field">
@@ -28,9 +33,14 @@
                                 <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
 
                               </div>
+                              </div>
 
-                              <%= f.submit "Create Plan" %>
-                              <% end %>
-        
+                              <div class="spacing-grid">
+
+                                <%= f.submit "Create Plan", class: 'btn btn-md btn-black'  %>
+                                <% end %>
+
+                              </div>
+                          </div>
                         </div>
 

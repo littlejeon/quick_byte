@@ -6,9 +6,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-4 mt-xs-30">
-
-<%= render "plans/all_plans", {plans: @plans} %>
-<%= render "plans/form", {plan: Plan.new } %>
+                      <%= render "plans/form", {plan: Plan.new } %>
+                      <%= render "plans/all_plans", {plans: @plans} %>
                     </div>
                 </div>
             </div>
