@@ -5,7 +5,6 @@ class PlansController < ApplicationController
   end
 
   def create
-    #binding.pry
     @plan = Plan.create(plan_params)
     @plan.users << current_user
     redirect_to @plan
@@ -19,7 +18,6 @@ class PlansController < ApplicationController
       format.html
       format.js {}
     end
-    #render json: @plans
   end
 
   def show
@@ -43,10 +41,12 @@ class PlansController < ApplicationController
     @plan.users << current_user
     @plan.save
 
+
     respond_to do |format|
       format.html
       format.js {}
     end
+
   end
 
   def edit

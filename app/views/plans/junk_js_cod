@@ -1,0 +1,15 @@
+junk_js_cod
+
+$("#plan-status-<%=@plan.id%>").html('You are In!' );
+$("#join-<%=@plan.id%>").hide();
+$("#plan-users-<%=@plan.id%>").append('<li><%=current_user.name%></li>' );
+//$("#leave-<%=@plan.id%>").removeClass("hide_this")
+$("#leave-<%=@plan.id%>").show();
+
+
+$("#plan-status-<%=@plan.id%>").html('You are Out!' );
+
+$( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
+
+$("#leave-<%=@plan.id%>").hide();
+$("#join-<%=@plan.id%>").show();
