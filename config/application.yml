@@ -10,13 +10,9 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-gmail_username: 'antoinfive@gmail.com'
-gmail_password: 'ohiostate25'
 
-S3_BUCKET_NAME: quickbyte
 
-AWS_ACCESS_KEY_ID: AKIAJW5PUARYLMURKYBA
-AWS_SECRET_ACCESS_KEY: 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
+AWS_ACCESS_KEY_ID: Hello
+AWS_SECRET_ACCESS_KEY: Goodbye
 
-gmail_username: 'quickbyteapp@gmail.com'
-gmail_password: 'learnlovecode1115'
+
