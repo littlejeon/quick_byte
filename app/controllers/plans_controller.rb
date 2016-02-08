@@ -15,9 +15,7 @@ class PlansController < ApplicationController
 
 
   def index
-
     @plans = Plan.all
-    #binding.pry
      respond_to do |format|
       format.html
       format.js {}
@@ -45,12 +43,10 @@ class PlansController < ApplicationController
     @plan.users << current_user
     @plan.save
 
-
     respond_to do |format|
       format.html
       format.js {}
     end
-
   end
 
   def edit
