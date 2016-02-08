@@ -6,7 +6,7 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.create(plan_params)
-    @plan.users.name << current_user
+    @plan.users << current_user
     @plan.host = current_user
     @plan.save
     redirect_to @plan
