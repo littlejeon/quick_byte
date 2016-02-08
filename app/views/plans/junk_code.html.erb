@@ -1,0 +1,76 @@
+junk_code.html.erb
+
+
+<h5>Create a New Plan</h5>
+
+<section class="ptb ptb-sm-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 mt-xs-30">
+
+                        <div class="sidebar-widget">
+                            <h5>Product Categories</h5>
+                            <hr>
+                            <%= form_for(plan) do |f| %>
+
+                              <div class="name-field">
+                                <%= f.label :name %>
+                                <%= f.text_field :name %>
+                              </div>
+
+                              <div class="time-field">
+                                <%= f.label :time %>
+                                <%= f.time_field :time %>
+                              </div>
+
+                              <div class="date-field">
+                                <%= f.label :date %>
+                                <%= f.date_select :date %>
+                              </div>
+
+                              <div class="restaurant-field">
+                                <%= f.label :restaurant %>
+                                <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+
+                              </div>
+
+                              <%= f.submit "Create Plan" %>
+                              <% end %>
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+
+
+
+              this upcoming plans works!
+
+
+              
+                        <div class="sidebar-widget">
+                            <h5>Upcoming Plans</h5>
+                            <hr>
+                            <ul>
+                              <%plans.each do |plan|%>
+                              <li>Name: <%=plan.name%></li>
+                              <li>You coming with?
+                                <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}"%>
+                                <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this", :method => 'DELETE'  %><span id="plan-status-<%=plan.id%>"></span>
+                              </li>
+                              <li>When:<%= plan.time.strftime("%B %d at %I:%M %p")%></li>
+                              <li>Where:<%= plan.restaurant.name %></li>
+                              <li>Users:</li>
+                                <ul id="plan-users-<%=plan.id%>">
+                                  <% plan.users.each do |user| %>
+                                    <li><%=user.name%></li>
+                                  <%end%>
+                                </ul>
+                                  <br>
+                                  ------------------
+                                  <br>
+                                <%end%>
+                                </ul>
+                        </div>

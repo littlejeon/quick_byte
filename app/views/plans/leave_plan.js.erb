@@ -1,7 +1,4 @@
 
-$("#plan-status-<%=@plan.id%>").html('You are Out!' );
 
 $( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
 
-$("#leave-<%=@plan.id%>").hide();
-$("#join-<%=@plan.id%>").show();

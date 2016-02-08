@@ -1,4 +1,23 @@
-<h1>All The Plans</h1>
+<br>
+<br>
+<br>
+
+<section class="ptb ptb-sm-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 mt-xs-30">
+                      <%= render "plans/form", {plan: Plan.new } %>
+                      <%= render "plans/all_plans", {plans: @plans} %>
+                    </div>
+                </div>
+            </div>
+</section> 
+ 
+
+
+        
+
+
 
 <ul>
   <%@plans.each do |plan|%>
@@ -21,4 +40,5 @@
     <br>
   <%end%>
 </ul>
+
 

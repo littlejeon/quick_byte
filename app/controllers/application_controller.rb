@@ -24,6 +24,20 @@ private
     current_user.avatar_file_name != nil
   end
 
+  def in_plan?
+    @plan = Plan.find(params[:id])
+    @plan.current_user
+    # this_plan = PlanUsers.find_by(plan_id: plan.id)
+    #   if this_plan.user_id == current_user
+    #     return true
+    #   else
+    #     return false
+    #   end
+   
+  end
+
+  
+
   def is_admin?(organization)
     user_organization = UserOrganization.find_by(organization_id: organization.id)
     user_organization.admin
