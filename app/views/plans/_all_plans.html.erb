@@ -12,7 +12,7 @@
                                 <li><span class="bold-text">When:</span><%= plan.time.strftime("%B %d at %I:%M %p")%></li>
                                 <li><span class="bold-text">Where:</span><%= plan.restaurant.name %></li>
 
-                              <li><span class="bold-text">Who's In Already?</span></li>
+                              <li><span class="bold-text">Who's In?</span></li>
                                 <ul id="plan-users-<%=plan.id%>">
                                   <%plan.users.each do |user| %>
                                       <li><%=user.name%></li>
@@ -20,11 +20,8 @@
                                   <%end%>
                                 <div class="spacing-grid">
                                     <div id="button-section-<%=plan.id%>">
-                                      <% if @in_plan %>
-                                            <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => " btn btn-md btn-black", :method => 'DELETE'  %>
-                                            <%else%>
-                                            <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}", :class => "btn btn-md btn-black"%>
-                                            <%end%>
+                                     <%=render partial: 'button',
+                                        locals: {in_plan: plan.users.include?(current_user), plan: plan}%>
                                           
                                     </div>
                                                 

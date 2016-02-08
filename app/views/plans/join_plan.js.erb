@@ -1,3 +1,4 @@
 
   $("#plan-users-<%=@plan.id%>").append('<li><%=current_user.name%></li>' );
-  
+  $("#button-section-<%=@plan.id%>").html("<%= j render partial: 'button',
+                                        locals: {in_plan: @in_plan, plan: @plan}%>");
