@@ -1,8 +1,30 @@
-  <% if current_user.is_member?(@organization) %>
+
+
+<!-- 
+<body class="full-intro"> -->
+
+
+
+
+        <!-- Intro Section -->
+    
+        <section class="inner-intro bg-img2 overlay-light parallax parallax-background2">
+            <div class="container">
+                <div class="row title">
+                    <h1 class="h1"><%= @organization.name %></h1>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <!-- End Intro Section -->
+
+
+
+
+      <% if current_user.is_member?(@organization) %>
   <%= render @organization %>
-    <% if current_user.is_admin?(@organization) %>
-      <%= link_to "Edit Organization", edit_organization_path %>
-    <%end%>
+    
   <% else  %>
   "You must be part of this organization to view it"
 <%end%>
+        

@@ -9,31 +9,28 @@
 
 
 .bold-text {
-  
-
   font-weight: bold;
 }
 
 .sidebar-widget li {
-  
   text-align: left;
   margin-left: 7.5%;
   padding-bottom: 5px;
-
 }
 
 .bottom-box {
-  
   margin-top: 10%;
 }
 
 .sidebar-form {
-
   text-align: left;
   padding-left: 7.5%;
 }
 
 select#plan_date_1i, select#plan_date_2i, select#plan_date_3i {
-
   padding: 5px 5px;
+}
+
+.remove_user {
+  color:tomato;
 }
