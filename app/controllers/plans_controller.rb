@@ -15,9 +15,7 @@ class PlansController < ApplicationController
 
 
   def index
-
     @plans = Plan.all
-    #binding.pry
      respond_to do |format|
       format.html
       format.js {}
@@ -51,14 +49,15 @@ class PlansController < ApplicationController
       flash[:error] = "You are already participating in this plan."
     end
 
+
     @in_plan = @plan.users.include?(current_user)
 
     #binding.pry
+
     respond_to do |format|
       format.html
       format.js {}
     end
-
   end
 
 
