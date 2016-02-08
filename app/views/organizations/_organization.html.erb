@@ -1,30 +1,12 @@
-<h1> <%= @organization.name %> </h1>
-
-<h5> Users in this Organization: </h5>
-<ul>
-<% @organization.users.each do |user| %>
- <li> <%= link_to user.name, user_path(user) %>
-  <% if @organization.admins.include?(current_user.id) %>
-   <%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %>  </li>
-   <% end  %>
- <% end  %>
-</ul>
-<br>
-<h5> Restaurants in this Organization: </h5>
-<p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
-<ul>
- <% @organization.restaurants.each do |restaurant| %>
-  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  <% end  %>
-</ul>
-
-
-<section class="ptb ptb-sm-80">
+<section class="ptb ptb-sm-20">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <h3><%= @organization.name %></h3>
-                        <p class="lead">Does an org have a bio? If so it would definitely go here!</p>
+                        <p class="lead"><%= @organization.location %></p>
+                        <% if current_user.is_admin?(@organization) %>
+                          <%= link_to "Edit Organization", edit_organization_path %>
+                        <%end%>
                     </div>
                     <div class="col-md-6">
                         <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
@@ -37,3 +19,60 @@
      
 
 
+<!-- Pricing Table Section -->
+
+                        <section class="ptb-sm-80">
+                            <div class="container text-center col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4 mb-30">
+                                        <div class="Pricing-box">
+                                            <div class="price-title spacing-box">
+                                                <h4>Users in this Organization</h4>
+                                            </div>
+                                            <hr />
+                                            <div class="pricing-features spacing-grid">
+                                                <ul>
+                                                  <% @organization.users.each do |user| %>
+                                                   <li> <%= link_to user.name, user_path(user) %>
+                                                    <% if @organization.admins.include?(current_user.id) %>
+                                                     <span class="remove_user"><%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %></span>  </li>
+                                                     <% end  %>
+                                                   <% end  %>
+                                                 </ul>
+                                            </div>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-30">
+                                        <div class="Pricing-box highlight">
+                                            <div class="price-title spacing-box">
+                                                <h4>Restaurants</h4>
+                                            </div>
+                                            <hr />
+                                            <div class="pricing-features spacing-grid">
+                                              <ul>
+                                                <% @organization.restaurants.each do |restaurant| %>
+                                                  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+                                                <% end  %>
+                                              </ul>
+                                            </div>
+                                              
+                                            <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
+                                        </div>
+                                    </div>
+                                       
+                                           
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
+                      <!-- End Pricing Table Section -->
+                    </div><!--END "col-md-9" SECTION -->
+                </div>
+
+            </div>
+        </section>

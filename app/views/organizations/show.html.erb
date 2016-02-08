@@ -23,9 +23,7 @@
 
       <% if current_user.is_member?(@organization) %>
   <%= render @organization %>
-    <% if current_user.is_admin?(@organization) %>
-      <%= link_to "Edit Organization", edit_organization_path %>
-    <%end%>
+    
   <% else  %>
   "You must be part of this organization to view it"
 <%end%>
