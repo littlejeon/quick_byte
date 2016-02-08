@@ -68,15 +68,16 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    # current_organization = Organization.find(params[:id])
-    # @organization = current_organization.update_attributes(org_params)
-    # redirect_to @organization
+    current_organization = Organization.find(params[:id])
+    @organization = current_organization.update_attributes(org_params)
+    binding.pry
+    redirect_to @organization
   end
 
   private
 
   def org_params
-    params.require(:organization).permit(:name, :location, :logo_url, :domains => [])
+    params.require(:organization).permit(:name, :location, :logo, :domain_names)
   end
 
 end
