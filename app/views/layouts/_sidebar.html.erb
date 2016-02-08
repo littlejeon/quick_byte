@@ -1,7 +1,7 @@
 <div class="sidebar-widget">
   <% current_user.organizations.each do |organization| %>
     <div >
-      <%= link_to organization.name, organization_path(organization.id), :class => "btn btn-md btn-black" %>
+      <%= link_to organization.name, organization_path(organization.id), :class => "btn btn-md btn-black" %><br><br>
     </div>
   <%end%>    
 
