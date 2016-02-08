@@ -2,3 +2,5 @@
 
 $( "#plan-users-<%=@plan.id%> li:contains('<%=current_user.name%>')" ).remove();
 
+$("#button-section-<%=@plan.id%>").html("<%= j render partial: 'button',
+                                         locals: {in_plan: @in_plan, plan: @plan}%>");

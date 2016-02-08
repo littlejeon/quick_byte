@@ -1,6 +1,6 @@
-<br>
-<br>
-<br>
+
+
+<section class="ptb ptb-sm-20">
 
 <section class="ptb ptb-sm-50">
             <div class="container">
@@ -11,12 +11,7 @@
                     </div>
                 </div>
             </div>
-</section> 
- 
-
-
-        
-
+</section>
 
 
 <ul>
@@ -25,7 +20,6 @@
   <li>You coming with?
     <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}"%>
     <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this", :method => 'DELETE'  %><span id="plan-status-<%=plan.id%>"></span>
-    
   </li>
   <li>When:<%= plan.time.strftime("%B %d at %I:%M %p")%></li>
   <li>Where:<%= plan.restaurant.name %></li>
@@ -40,5 +34,4 @@
     <br>
   <%end%>
 </ul>
-
 

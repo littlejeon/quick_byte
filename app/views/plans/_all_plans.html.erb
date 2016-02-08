@@ -8,35 +8,33 @@
                             <hr>
                             <ul>
                               <%plans.each do |plan|%>
-                              <li><span class="bold-text">Plan Name:</span> <%=plan.name%></li>
-                              <li>You coming with?
-                                <%if !plan.users.include?(current_user) %>
-                                <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}", :class => "btn btn-md btn-black"%>
-                                <% else %>
-                                <%= link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => " btn btn-md btn-black", :method => 'DELETE'  %><span id="plan-status-<%=plan.id%>"></span>
-                                  <% end %>
-                              </li>
-                              <li><span class="bold-text">When:</span><%= plan.time.strftime("%B %d at %I:%M %p")%></li>
-                              <li><span class="bold-text">Where:</span><%= plan.restaurant.name %></li>
-                              <li><span class="bold-text">Who's In Already?</span></li>
-                                <ul id="plan-users-<%=plan.id%>">
-                                  <% plan.users.each do |user| %>
-                                    <li><%=user.name%></li>
-                                  <%end%>
-                                </ul>
-                                 _________________
-                     
-                                <%end%>
-                                </ul>
-                                  <div class="spacing-grid">
-                                         <%plans.each do |plan|%>
-                                          <%= link_to "Join", join_plan_path(plan), remote: true, :id => "join-#{plan.id}", :class => "btn btn-md btn-black"%>
-                                           <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :id => "leave-#{plan.id}", :class => "hide_this btn btn-md btn-black", :method => 'DELETE'  %>
-                                                
-                                          <%end%>
-                                          <a class="btn btn-md btn-black">Join</a>
+                                <li><span class="bold-text">Plan Name:</span> <%=plan.name%></li>
+                                <li><span class="bold-text">When:</span><%= plan.time.strftime("%B %d at %I:%M %p")%></li>
+                                <li><span class="bold-text">Where:</span><%= plan.restaurant.name %></li>
 
-                                            </div>
+                              <li><span class="bold-text">Who's In?</span></li>
+                                <ul id="plan-users-<%=plan.id%>">
+                                  <%plan.users.each do |user| %>
+                                      <li><%=user.name%></li>
+                                </ul>
+                                  <%end%>
+                                <div class="spacing-grid">
+                                    <div id="button-section-<%=plan.id%>">
+                                     <%=render partial: 'button',
+                                        locals: {in_plan: plan.users.include?(current_user), plan: plan}%>
+                                          
+                                    </div>
+                                                
+                                          
+
+                                </div>
+                                 _________________
+                              <% end %>
+                     
+                                
+                                </ul>
+                                  
                           </div>
-                          
-                        </div>
+                         </div> 
+                  
+

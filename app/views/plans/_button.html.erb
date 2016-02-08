@@ -1,0 +1,13 @@
+<% if in_plan %>
+
+    <%=link_to "Leave plan", leave_plan_path(plan), remote: true, :class => "btn btn-md btn-black", :method => 'DELETE'%>
+
+<% else %>
+    <%= link_to "Join", join_plan_path(plan), remote: true, :class => "btn btn-md btn-black"%>
+
+<% end %>
+
+<% if flash[:error]  %>
+  <%= flash[:error]  %>
+
+<% end %>

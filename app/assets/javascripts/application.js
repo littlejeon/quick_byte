@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
 // require turbolinks
@@ -37,5 +37,3 @@
 //= require js/plugin/jquery.validate.min
 //= require js/theme
 //= require js/navigation
-
-
