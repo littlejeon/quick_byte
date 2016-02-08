@@ -33,7 +33,7 @@ class PlansController < ApplicationController
     @plan.users.delete(current_user)
     @plan.users
     @plan.save
-
+    @in_plan = @plan.users.include?(current_user)
     respond_to do |format|
       format.html
       format.js {}
@@ -44,6 +44,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @plan.users << current_user
     @plan.save
+    @in_plan = @plan.users.include?(current_user)
 
 
     respond_to do |format|
