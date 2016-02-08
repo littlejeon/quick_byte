@@ -4,11 +4,15 @@ class PlansController < ApplicationController
     @plan = Plan.new
   end
 
+
   def create
     @plan = Plan.create(plan_params)
     @plan.users << current_user
+    @plan.host = current_user
+    @plan.save
     redirect_to @plan
   end
+
 
   def index
 
