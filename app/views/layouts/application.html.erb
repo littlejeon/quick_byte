@@ -94,8 +94,7 @@
                         <li class="">
                             <% if logged_in? %>
                               <%= image_tag current_user.avatar.url(:thumb) %>
-                              <%= current_user.name %>
-                              <%= link_to "Edit", edit_user_path(current_user), :class => "edit-user" %>
+                              <%= link_to current_user.name , edit_user_path(current_user), :class => "edit-user" %>
                             <%end%>
                         </li>
                         <!-- End Avatar Icon -->
