@@ -69,9 +69,11 @@ class OrganizationsController < ApplicationController
 
   def update
     current_organization = Organization.find(params[:id])
-    @organization = current_organization.update_attributes(org_params)
-    binding.pry
-    redirect_to @organization
+    current_organization.domains = params[:organization][:domains].split(", ")
+    current_organization.update_attributes(org_params)
+    current_organization.save
+    # binding.pry
+    redirect_to current_organization
   end
 
   private
