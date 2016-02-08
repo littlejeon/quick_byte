@@ -1,48 +1,37 @@
+<div class="sidebar-widget">
+  <div class="Pricing-box">
+      <div class="price-title spacing-box">
+        <h4>Create a New Plan</h4>
+      </div>
 
+    <hr>
+    <div class = "sidebar-form">
+    <%= form_for(plan) do |f| %>
 
+      <div class="name-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
 
+      <div class="time-field">
+        <%= f.label :time %>
+        <%= f.time_field :time %>
+      </div>
 
+      <div class="date-field">
+        <%= f.label :date %>
+        <%= f.date_select :date %>
+      </div>
 
-                        <div class="sidebar-widget">
-                          <div class="Pricing-box">
-                              <div class="price-title spacing-box">
-                                <h4>Create a New Plan</h4>
-                              </div>
-                    
-                            <hr>
-                            <div class = "sidebar-form">
-                            <%= form_for(plan) do |f| %>
-                         
+      <div class="restaurant-field">
+        <%= f.label :restaurant %>
+        <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+      </div>
+      </div>
 
-                              <div class="name-field">
-                                <%= f.label :name %>
-                                <%= f.text_field :name %>
-                              </div>
-
-                              <div class="time-field">
-                                <%= f.label :time %>
-                                <%= f.time_field :time %>
-                              </div>
-
-                              <div class="date-field">
-                                <%= f.label :date %>
-                                <%= f.date_select :date %>
-                              </div>
-
-                              <div class="restaurant-field">
-                                <%= f.label :restaurant %>
-                                <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
-
-                              </div>
-                              </div>
-
-                              <div class="spacing-grid">
-
-                                <%= f.submit "Create Plan", class: 'btn btn-md btn-black'%>
-                                
-
-                              </div>
-                            <% end %>
-                          </div>
-                     
-
+      <div class="spacing-grid">
+        <%= f.submit "Create Plan", class: 'btn btn-md btn-black'%>
+      </div>
+    <% end %>
+  </div>
+</div>
