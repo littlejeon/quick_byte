@@ -89,7 +89,11 @@
                 <nav class='navigation light-color'>
                     <ul>
                         <li class='light-color'>
-                          <%= link_to "Login or Signup", login_path, {:style=>'color:#FFFFFF;', :class => "light-color"} %>
+                            <% if logged_in? %>
+                                <%= link_to "Your Dashboard", dashboard_path, {:style=>'color:#FFFFFF;', :class => "light-color"} %>
+                            <% else %>
+                              <%= link_to "Login or Signup", login_path, {:style=>'color:#FFFFFF;', :class => "light-color"} %>
+                            <% end %>
                         </li>                        
                     </ul>
                 </nav>
