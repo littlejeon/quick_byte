@@ -24,6 +24,11 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    @restaurant = @plan.restaurant
+    @hash = Gmaps4rails.build_markers (@restaurant) do |restaurant, marker|
+     marker.lat restaurant.latitude
+     marker.lng restaurant.longitude
+   end
   end
 
   def leave_plan

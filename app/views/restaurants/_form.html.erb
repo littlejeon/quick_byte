@@ -1,6 +1,7 @@
 <h4>Add a Restaurant</h4>
 <%= form_for(@restaurant) do |f| %>
 
+
   <div class="form-field-wrapper">
     <div class="name-field">
       <%= f.label :name %>
@@ -10,8 +11,8 @@
 
   <div class="form-field-wrapper">
     <div class="location-field">
-      <%= f.label :location %>
-      <%= f.text_field :location, :class => 'input-sm form-full'  %>
+      <%= f.label :address %>
+      <%= f.text_field :address, :class => 'input-sm form-full'  %>
     </div>
   </div>
 
@@ -21,6 +22,8 @@
       <%= f.text_field :dietary_needs, placeholder: "optional", :class => 'input-sm form-full'  %>
     </div>
   </div>
+
+
 
   <div class="form-field-wrapper">
     <div class="cuisine-field">
@@ -41,5 +44,3 @@
 
   <%= f.submit "Create", :class => 'btn btn-md btn-black'  %>
 <% end %>
-
-

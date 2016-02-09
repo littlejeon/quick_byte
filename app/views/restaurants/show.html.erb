@@ -1,1 +1,3 @@
-<%= render 'restaurants', {restaurant: @restaurant} %>
+
+<%= render 'restaurant', {restaurant: @restaurant} %>
+<%= render 'reviews/form', {review: Review.new, restaurant: @restaurant} %>

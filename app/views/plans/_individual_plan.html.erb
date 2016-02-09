@@ -1,5 +1,7 @@
 <h2>Plan details</h2>
   <%# if plan.time == Date.current %>
+  <%= render 'restaurants/map'%>
+  
   <div>
     Name: <%=   @plan.name %><br>
     Time: <%=   @plan.time %><br>

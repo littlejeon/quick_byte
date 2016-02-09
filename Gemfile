@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 # For image upload
 gem "paperclip", "~> 4.3"
 
+
 # Amazon Web Services - Uploads Images
 gem 'aws-sdk', '< 2.0'
 
@@ -63,5 +64,10 @@ gem 'rest-client'
  # for the prettiez
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
+
 gem 'ionicons-rails'
 # ruby '2.2.3'
+
+
+gem 'gmaps4rails'
+gem 'geocoder'

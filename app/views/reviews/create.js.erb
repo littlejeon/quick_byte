@@ -1,0 +1,10 @@
+debugger;
+
+
+
+$(".comment").append("<li>" + "Comment by: <%=current_user.name%>, <%=@review.comment%> </li>")
+$(".wait_time").find("li").text("Wait Time: <%=@restaurant.average('wait_time')%>")
+$(".rating").find("li").text("Rating: <%=@restaurant.average('rating')%>")
+$(".price").find("li").text("Price: <%=@restaurant.average('price')%>")
+
+// $(".comment").append("<li>" + "Comment by: Antoin " + comment + "</liv>")

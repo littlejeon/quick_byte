@@ -6,6 +6,10 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @hash = Gmaps4rails.build_markers (@restaurant) do |restaurant, marker|
+     marker.lat restaurant.latitude
+     marker.lng restaurant.longitude
+   end
   end
 
   def new
@@ -13,7 +17,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    # binding.pry
     restaurant = Restaurant.create(restaurant_params)
     unless params[:cuisine].empty?
       cuisine = Cuisine.create(name: params[:cuisine][:name])
@@ -42,6 +45,6 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :dietary_needs, :cuisine_id)
+    params.require(:restaurant).permit(:name, :location, :dietary_needs, :cuisine_id, :address, :latitude, :longitude)
   end
 end
