@@ -13,10 +13,12 @@ class SessionsController < ApplicationController
   end
 
   def new
-    # if logged_in?
-    #   redirect_to dashboard_path
-    # end
-    @user = User.new
+    if logged_in?
+      redirect_to dashboard_path
+    else
+      @user = User.new
+    end
+    
   end
 
   def destroy
