@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     current_user.set_confirmation_token
     current_user.save(validate: false)
     UserMailer.request_access(organization.admin_emails, current_user, organization.id).deliver_now
-    redirect_to organizations_path
+    redirect_to dashboard_path
     flash[:success] = "Waiting for Admin to Grant Access. Hold Tight"
   end
 
