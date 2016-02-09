@@ -30,15 +30,57 @@
                                                                         <li>"<%= review.comment %>"</li>
                                                                     <% end %>
                                                               </ul>
-                                                            </div>  
+                                                            </div>
                                                         </div>
                                                     <% end  %>
                                                     <br>
                                                     <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                                 </div>
+
+                                             <% end  %>
+
+                                            <hr />
+                                        </div> -->
+                                    <!-- </div> -->
+                                    <div class="col-md-9 mb-30">
+                                    <% @organization.restaurants.each do |restaurant| %>
+                                        <div class="Pricing-box highlight">
+                                            <div class="price-title spacing-box">
+                                                <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
                                             </div>
+                                            <hr />
+
+                                            <div class="pricing-features spacing-grid">
+                                              <ul>
+
+                                                <h4>Details</h4>
+                                                   <li>Location: <%= restaurant.location %></li>
+                                                   <li>Cuisine: <%= restaurant.cuisine.name %></li>
+                                                    <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
+                                                  <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
+                                                  <li>Average Price: $<%= restaurant.average("price") %> </li>
+                                                  <h4> Most Recent Review</h4>
+                                                    <%= restaurant.reviews.last.comment %>
+                                                    <!-- <%# restaurant.reviews.each do |review| %>
+                                                    <li>"<%#= review.comment %>"</li> -->
+
+                                                    <%# end %>
+                                                <% end  %>
+                                              </ul>
+                                            </div>
+
+                                            </div>
+
                                         </div>
                                     </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
                                 </div>
                                 </div>
                             </div>
@@ -49,7 +91,7 @@
 
             </div>
         </section>
-<!-- 
+<!--
         reate_table "restaurants", force: :cascade do |t|
     t.string   "location"
     t.string   "cuisine"
