@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @plan = Plan.find(params[:id])
+    # @plan = Plan.find(params[:id])
     user = User.find(params[:id])
     # binding.pry
   end
