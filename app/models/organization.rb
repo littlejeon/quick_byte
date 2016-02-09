@@ -9,7 +9,7 @@ class Organization < ActiveRecord::Base
 
   has_attached_file :logo,
   styles: { :large => "300x" },
-  :default_url => '/assets/defaultlogo_:style.png'
+  :default_url => 'defaultlogo_:style.png'
   validates_attachment :logo,
   content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
   size: { in: 0..100.kilobytes }
