@@ -17,7 +17,7 @@
 
             </div>
         </section> -->
-     
+
 
 
 <!-- Pricing Table Section -->
@@ -45,7 +45,7 @@
                                                      </ul>
                                                 </div>
                                              <% end  %>
-                                            
+
                                             <hr />
                                         </div> -->
                                     <!-- </div> -->
@@ -59,29 +59,30 @@
 
                                             <div class="pricing-features spacing-grid">
                                               <ul>
-                                                
+
                                                 <h4>Details</h4>
                                                    <li>Location: <%= restaurant.location %></li>
                                                    <li>Cuisine: <%= restaurant.cuisine.name %></li>
                                                     <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
                                                   <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
                                                   <li>Average Price: $<%= restaurant.average("price") %> </li>
-                                                    <% restaurant.reviews.each do |review| %>
-                                                   <h4>Reviews</h4>
-                                                    <li>"<%= review.comment %>"</li>
-                                                    
-                                                    <% end %>
+                                                  <h4> Most Recent Review</h4>
+                                                    <%= restaurant.reviews.last.comment %>
+                                                    <!-- <%# restaurant.reviews.each do |review| %>
+                                                    <li>"<%#= review.comment %>"</li> -->
+
+                                                    <%# end %>
                                                 <% end  %>
                                               </ul>
-                                            </div>  
+                                            </div>
                                         </div>
                                             <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                     </div>
-                                       
-                                           
+
+
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                                 </div>
                                 </div>
@@ -93,7 +94,7 @@
 
             </div>
         </section>
-<!-- 
+<!--
         reate_table "restaurants", force: :cascade do |t|
     t.string   "location"
     t.string   "cuisine"

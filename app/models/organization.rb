@@ -6,6 +6,7 @@ class Organization < ActiveRecord::Base
   has_many :restaurants, through: :users
   validates_uniqueness_of :name
   validates_presence_of :name
+  validates_uniqueness_of :restaurants, :users
 
   has_attached_file :logo,
   styles: { :large => "300x" },
