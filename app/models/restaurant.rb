@@ -3,7 +3,8 @@ class Restaurant < ActiveRecord::Base
   has_many :users, through: :reviews
   belongs_to :cuisine
   has_many :plans
-
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   accepts_nested_attributes_for :cuisine
 

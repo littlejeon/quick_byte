@@ -37,5 +37,7 @@
 //= require js/plugin/jquery.validate.min
 //= require js/theme
 //= require js/navigation
+//= require underscore
+//= require gmaps/google
 
-
+//= require_tree .

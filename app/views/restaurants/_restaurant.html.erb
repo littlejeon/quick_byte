@@ -1,5 +1,8 @@
 <h1> <%= @restaurant.name %> </h1>
 
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
 
   <li> Wait Time: <%= @restaurant.average("wait_time") %> minutes </li>
   <li> Rating: <%= @restaurant.average("rating") %> </li>
@@ -13,10 +16,18 @@
     <% end %>
   </div>
 
-  <%= render 'reviews/form', {review: Review.new, restaurant: @restaurant} %>
   <ul>
 
     <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
     <%#= link_to "Remove from #{current_user.organization.name}", delete_restaurant_path(@restaurant) %>
 
+    <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(15);
+  });
+</script>
 </ul>

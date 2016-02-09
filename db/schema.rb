@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204192941) do
+ActiveRecord::Schema.define(version: 20160208194706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,29 @@ ActiveRecord::Schema.define(version: 20160204192941) do
 
   add_index "cuisines", ["user_id"], name: "index_cuisines_on_user_id", using: :btree
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
     t.string   "logo_url"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.text     "domains",    default: [],              array: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "domains",           default: [],              array: true
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -64,6 +80,9 @@ ActiveRecord::Schema.define(version: 20160204192941) do
     t.datetime "updated_at",    null: false
     t.string   "name"
     t.integer  "cuisine_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "restaurants", ["cuisine_id"], name: "index_restaurants_on_cuisine_id", using: :btree
