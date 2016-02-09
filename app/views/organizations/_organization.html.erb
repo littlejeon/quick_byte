@@ -1,9 +1,4 @@
-
-
-
-<!-- Pricing Table Section -->
-
-                        <section class="ptb ptb-sm-80">
+<section class="ptb ptb-sm-80">
                             <div class="container text-center col-md-12">
                                     <div class="row">
                                                 <div class="col-md-3 col-sm-4 mt-xs-30">
@@ -20,15 +15,13 @@
                                                             <div class="pricing-features spacing-grid">
                                                               <ul>
                                                                 <h4>Details</h4>
-                                                                    <li>Location: <%= restaurant.location %></li>
+                                                                    <li>Location: <%= restaurant.address %></li>
                                                                     <li>Cuisine: <%= restaurant.cuisine.name %></li>
                                                                     <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
                                                                     <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
                                                                     <li>Average Price: $<%= restaurant.average("price") %> </li>
-                                                                    <% restaurant.reviews.each do |review| %>
-                                                                       <h4>Reviews</h4>
-                                                                        <li>"<%= review.comment %>"</li>
-                                                                    <% end %>
+                                                                      <h4>Most Recent Review</h4>
+                                                                    <li>"<%= restaurant.reviews.last.comment %>"</li>
                                                               </ul>
                                                             </div>
                                                         </div>
@@ -36,51 +29,9 @@
                                                     <br>
                                                     <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                                 </div>
-
-                                             <% end  %>
-
-                                            <hr />
-                                        </div> -->
-                                    <!-- </div> -->
-                                    <div class="col-md-9 mb-30">
-                                    <% @organization.restaurants.each do |restaurant| %>
-                                        <div class="Pricing-box highlight">
-                                            <div class="price-title spacing-box">
-                                                <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
                                             </div>
-                                            <hr />
-
-                                            <div class="pricing-features spacing-grid">
-                                              <ul>
-
-                                                <h4>Details</h4>
-                                                   <li>Location: <%= restaurant.location %></li>
-                                                   <li>Cuisine: <%= restaurant.cuisine.name %></li>
-                                                    <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
-                                                  <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
-                                                  <li>Average Price: $<%= restaurant.average("price") %> </li>
-                                                  <h4> Most Recent Review</h4>
-                                                    <%= restaurant.reviews.last.comment %>
-                                                    <!-- <%# restaurant.reviews.each do |review| %>
-                                                    <li>"<%#= review.comment %>"</li> -->
-
-                                                    <%# end %>
-                                                <% end  %>
-                                              </ul>
-                                            </div>
-
-                                            </div>
-
                                         </div>
                                     </div>
-
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
                                 </div>
                                 </div>
                             </div>
@@ -88,28 +39,5 @@
                       <!-- End Pricing Table Section -->
                     </div><!--END "col-md-9" SECTION -->
                 </div>
-
             </div>
         </section>
-<!--
-        reate_table "restaurants", force: :cascade do |t|
-    t.string   "location"
-    t.string   "cuisine"
-    t.string   "dietary_needs"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "name"
-    t.integer  "cuisine_id"
-  end
-
-  add_index "restaurants", ["cuisine_id"], name: "index_restaurants_on_cuisine_id", using: :btree
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "rating"
-    t.integer  "wait_time"
-    t.integer  "price"
-    t.text     "comment"
-    t.integer  "restaurant_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at", -->

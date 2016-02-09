@@ -15,7 +15,7 @@ class OrganizationsController < ApplicationController
   def confirm_email
     user = User.find_by_confirm_token(params[:token])
     organization = Organization.find(params[:id])
-    if user 
+    if user
        user.send('email_activate')
        user.save(validate: false)
        organization.users << user
@@ -41,12 +41,12 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(org_params)
+    # binding.pry
+    @organization = Organization.create(org_params)
     current_user.organizations << @organization
     user_organization = current_user.user_organizations.find_by(organization_id: @organization.id)
     @organization.domains << params[:organization][:domains]
     user_organization.update(admin: true)
-    @organization.save
     flash[:notice] = "You just created a group! You are now the admin."
     redirect_to @organization
   end
