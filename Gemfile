@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # For image upload
-gem 'paperclip'
+gem "paperclip", "~> 4.3"
 
 # Amazon Web Services - Uploads Images
 gem 'aws-sdk', '< 2.0'

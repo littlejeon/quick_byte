@@ -211,7 +211,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
-  paperclip
+  paperclip (~> 4.3)
   pg (~> 0.15)
   pry-rails
   puma
