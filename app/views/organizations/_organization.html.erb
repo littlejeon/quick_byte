@@ -25,8 +25,12 @@
                         <section class="ptb ptb-sm-80">
                             <div class="container text-center col-md-12">
                                 <div class="row">
-                                    <div class="col-md-4 mb-30">
-                                        <div class="Pricing-box">
+                                    <div class="col-md-3 col-sm-4 mt-xs-30">
+                                      <%= render "plans/form", {plan: Plan.new } %>
+                                      <%= render "plans/all_plans", {plans: @plans} %>
+                                    </div>
+                           <!--          <div class="col-md-4 mb-30"> -->
+                                        <!-- <div class="Pricing-box">
                                             <% if @organization.admins.include?(current_user.id) %>
                                                 <div class="price-title spacing-box">
                                                     <h4>Users in this Organization</h4>
@@ -43,24 +47,35 @@
                                              <% end  %>
                                             
                                             <hr />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-30">
+                                        </div> -->
+                                    <!-- </div> -->
+                                    <div class="col-md-9 mb-30">
+                                    <% @organization.restaurants.each do |restaurant| %>
                                         <div class="Pricing-box highlight">
                                             <div class="price-title spacing-box">
-                                                <h4>Restaurants</h4>
+                                                <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
                                             </div>
                                             <hr />
+
                                             <div class="pricing-features spacing-grid">
                                               <ul>
-                                                <% @organization.restaurants.each do |restaurant| %>
-                                                  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+                                                
+                                                <h4>Details</h4>
+                                                   <li>Location: <%= restaurant.location %></li>
+                                                   <li>Cuisine: <%= restaurant.cuisine.name %></li>
+                                                    <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
+                                                  <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
+                                                  <li>Average Price: $<%= restaurant.average("price") %> </li>
+                                                    <% restaurant.reviews.each do |review| %>
+                                                   <h4>Reviews</h4>
+                                                    <li>"<%= review.comment %>"</li>
+                                                    
+                                                    <% end %>
                                                 <% end  %>
                                               </ul>
-                                            </div>
-                                              
-                                            <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
+                                            </div>  
                                         </div>
+                                            <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                     </div>
                                        
                                            
@@ -78,3 +93,25 @@
 
             </div>
         </section>
+<!-- 
+        reate_table "restaurants", force: :cascade do |t|
+    t.string   "location"
+    t.string   "cuisine"
+    t.string   "dietary_needs"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.integer  "cuisine_id"
+  end
+
+  add_index "restaurants", ["cuisine_id"], name: "index_restaurants_on_cuisine_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.integer  "wait_time"
+    t.integer  "price"
+    t.text     "comment"
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at", -->
