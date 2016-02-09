@@ -8,11 +8,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     current_user.reviews << @review
-    binding.pry
-    # respond_to do |format|
-    #   format.js {}
-    # end
-    redirect_to @review.restaurant
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to @review.restaurant }
+    end
+
   end
 
   def show
