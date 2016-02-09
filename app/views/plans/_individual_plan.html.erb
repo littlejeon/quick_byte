@@ -3,7 +3,7 @@
   <div>
     Name: <%=   @plan.name %><br>
     Time: <%=   @plan.time %><br>
-    Restaurant: <%=   @plan.restaurant.name %><br>
+    Restaurant: <%= link_to @plan.restaurant.name, restaurant_path(@plan.restaurant) %><br>
     Attendees: <%   @plan.users.each do |user|%>
         <%= user.name %>
     <%end%><br>

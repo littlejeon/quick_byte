@@ -23,9 +23,8 @@
 
 
       <% if current_user.is_member?(@organization) %>
-  <%= render @organization %>
-    
-  <% else  %>
-  "You must be part of this organization to view it"
-<%end%>
+        <%= render @organization %>
+      <% else  %>
+        "You must be part of this organization to view it"
+      <%end%>
         

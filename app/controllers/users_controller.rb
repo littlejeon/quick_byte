@@ -28,12 +28,12 @@ class UsersController < ApplicationController
     user_domain = current_user.domain_name
     organization = Organization.find(params[:user][:organizations])
     domains = organization.domain_names
-    if domains.include?(user_domain)
+    if domains.include?(user_domain) && !organization.users.include?(current_user)
       current_user.set_confirmation_token
       current_user.save(validate: false)
       UserMailer.registration_confirmation(current_user, organization.id).deliver_now
       flash[:success] = "Please confirm your email address to continue"
-      redirect_to organizations_path
+      redirect_to dashboard_path
     else
       flash[:error] = "In order to join this group you must have"
         @organization = Organization.find(params[:user][:organizations])
