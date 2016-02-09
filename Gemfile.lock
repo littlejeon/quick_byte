@@ -209,12 +209,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   figaro
   font-awesome-rails
-
-  ionicons-rails
-
   geocoder
   gmaps4rails
-
+  ionicons-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
