@@ -60,3 +60,4 @@ gem 'rest-client'
  # for the prettiez
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
+gem 'ionicons-rails'
