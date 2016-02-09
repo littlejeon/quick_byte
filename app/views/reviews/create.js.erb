@@ -1,11 +1,10 @@
 debugger;
-$(document).ready(function() {
 
-    var comment = $("#review_comment").val()
-    var wait_time = $("#review_wait_time").val()
-    var price = $("#review_price").val()
-    var rating = $("#review_rating").val()
 
-$(".comment").append("<li>" + "Comment by: " + <%=current_user.name%> + comment + "</li>")
+
+$(".comment").append("<li>" + "Comment by: <%=current_user.name%>, <%=@review.comment%> </li>")
+$(".wait_time").find("li").text("Wait Time: <%=@restaurant.average('wait_time')%>")
+$(".rating").find("li").text("Rating: <%=@restaurant.average('rating')%>")
+$(".price").find("li").text("Price: <%=@restaurant.average('price')%>")
+
 // $(".comment").append("<li>" + "Comment by: Antoin " + comment + "</liv>")
-});

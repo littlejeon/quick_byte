@@ -6,14 +6,27 @@
 
 <%= render 'map'%>
 
-  <li> Wait Time: <%= @restaurant.average("wait_time") %> minutes </li>
-  <li> Rating: <%= @restaurant.average("rating") %> </li>
-  <li> Price: $<%= @restaurant.average("price") %> </li>
+   <div class="wait_time">
+     <li>
+     Wait Time: <%= @restaurant.average("wait_time") %> minutes
+     </li>
+   </div>
+  <div class="rating">
+    <li>
+    Rating: <%= @restaurant.average("rating") %>
+  </li>
+  </div>
+  <div class="price">
+    <li>
+    Price: $<%= @restaurant.average("price") %>
+    </li>
+  </div>
+
 
   <div class="comment">
     <% @restaurant.reviews.each do |review| %>
       <% unless (review.user.nil?) || (review.comment.nil?) || (review.comment.empty? )%>
-        <li> Comment by <%= review.user.name %>: <%= review.comment %> </li>
+        <li> Comment by <%= link_to review.user.name, user_path(review.user) %>: <%= review.comment %> </li>
       <% end %>
     <% end %>
   </div>
