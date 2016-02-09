@@ -53,6 +53,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @plans = Plan.all
     # redirect_to '/organizations/@organization.name'
   end
 

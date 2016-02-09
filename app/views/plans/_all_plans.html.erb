@@ -20,7 +20,7 @@
                                   <%end%>
                                 <div class="spacing-grid">
                                     <div id="button-section-<%=plan.id%>">
-                                     <%=render partial: 'button',
+                                     <%=render partial: 'plans/button',
                                         locals: {in_plan: plan.users.include?(current_user), plan: plan}%>
                                           
                                     </div>
