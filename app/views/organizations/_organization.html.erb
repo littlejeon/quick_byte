@@ -1,22 +1,3 @@
-<!-- <section class="ptb ptb-sm-20">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <%= image_tag @organization.logo.url(:large) %>
-                        <h3><%= @organization.name %></h3>
-                        <p class="lead"><%= @organization.location %></p>
-                        <% if current_user.is_admin?(@organization) %>
-                          <%= link_to "Edit Organization", edit_organization_path %>
-                        <%end%>
-                    </div>
-                    <div class="col-md-6">
-                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                        <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section> -->
 
 
 
@@ -24,26 +5,38 @@
 
                         <section class="ptb ptb-sm-80">
                             <div class="container text-center col-md-12">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-4 mt-xs-30">
-                                      <%= render "plans/form", {plan: Plan.new } %>
-                                      <%= render "plans/all_plans", {plans: @plans} %>
-                                    </div>
-                           <!--          <div class="col-md-4 mb-30"> -->
-                                        <!-- <div class="Pricing-box">
-                                            <% if @organization.admins.include?(current_user.id) %>
-                                                <div class="price-title spacing-box">
-                                                    <h4>Users in this Organization</h4>
+                                    <div class="row">
+                                                <div class="col-md-3 col-sm-4 mt-xs-30">
+                                                    <%= render "plans/form", {plan: Plan.new } %>
+                                                    <%= render "plans/all_plans", {plans: @plans} %>
                                                 </div>
-                                                <hr />
-                                                <div class="pricing-features spacing-grid">
-                                                    <ul>
-                                                      <% @organization.users.each do |user| %>
-                                                       <li> <%= link_to user.name, user_path(user) %>
-                                                         <span class="remove_user"><%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %></span>  </li>
-                                                       <% end  %>
-                                                     </ul>
+                                                <div class="col-md-9 mb-30">
+                                                    <% @organization.restaurants.each do |restaurant| %>
+                                                        <div class="Pricing-box highlight">
+                                                            <div class="price-title spacing-box">
+                                                                <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+                                                            </div>
+                                                            <hr />
+                                                            <div class="pricing-features spacing-grid">
+                                                              <ul>
+                                                                <h4>Details</h4>
+                                                                    <li>Location: <%= restaurant.location %></li>
+                                                                    <li>Cuisine: <%= restaurant.cuisine.name %></li>
+                                                                    <li>Average Wait Time: <%= restaurant.average("wait_time") %> minutes</li>
+                                                                    <li>Average Rating: <%= restaurant.average("rating") %>/5 </li>
+                                                                    <li>Average Price: $<%= restaurant.average("price") %> </li>
+                                                                    <% restaurant.reviews.each do |review| %>
+                                                                       <h4>Reviews</h4>
+                                                                        <li>"<%= review.comment %>"</li>
+                                                                    <% end %>
+                                                              </ul>
+                                                            </div>
+                                                        </div>
+                                                    <% end  %>
+                                                    <br>
+                                                    <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                                 </div>
+
                                              <% end  %>
 
                                             <hr />
@@ -75,15 +68,19 @@
                                                 <% end  %>
                                               </ul>
                                             </div>
+
+                                            </div>
+
                                         </div>
-                                            <p>Click <%= link_to "here", new_restaurant_path %> to add a Restaurant to this Organization</p>
                                     </div>
+
 
 
                                         </div>
                                     </div>
 
                                 </div>
+
                                 </div>
                                 </div>
                             </div>
