@@ -1,34 +1,45 @@
 <h4>Add a Restaurant</h4>
 <%= form_for(@restaurant) do |f| %>
 
-<div class="name-field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
+  <div class="form-field-wrapper">
+    <div class="name-field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => 'input-sm form-full'  %>
+    </div>
+  </div>
 
-<div class="location-field">
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-</div>
+  <div class="form-field-wrapper">
+    <div class="location-field">
+      <%= f.label :location %>
+      <%= f.text_field :location, :class => 'input-sm form-full'  %>
+    </div>
+  </div>
 
-<div class="dietary-needs-field">
-  <%= f.label :dietary_needs %>
-  <%= f.text_field :dietary_needs, placeholder: "optional" %>
-</div>
+  <div class="form-field-wrapper">
+    <div class="dietary-needs-field">
+      <%= f.label :dietary_needs %>
+      <%= f.text_field :dietary_needs, placeholder: "optional", :class => 'input-sm form-full'  %>
+    </div>
+  </div>
 
-<div class="cuisine-field">
-  <%= f.label :cuisine %>
-  <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, include_blank: true  %>
-</div>
+  <div class="form-field-wrapper">
+    <div class="cuisine-field">
+      <%= f.label :cuisine %>
+      <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, include_blank: true, :class => 'input-sm form-full'   %>
+    </div>
+  </div>
 
-<h4>or create a new type </h4>
-<%= fields_for :cuisine do |f|  %>
-<div class="new-cuisine-field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
+  <h4>or create a new type </h4>
+  <div class="form-field-wrapper">
+    <%= fields_for :cuisine do |f|  %>
+    <div class="new-cuisine-field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => 'input-sm form-full'  %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= f.submit "Create", :class => 'btn btn-md btn-black'  %>
 <% end %>
 
 
-<%= f.submit "Create" %>
-<% end %>

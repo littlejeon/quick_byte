@@ -1,5 +1,4 @@
 <h1>All organizations</h1>
-  <%= flash[:success] %>
 <% @organizations.each do |organization| %>
   <ul>
     <li><%= link_to "#{organization.name}", organization_path(organization.id) %></li>

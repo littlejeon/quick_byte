@@ -15,5 +15,5 @@
   <%= render 'reviews/form', {review: Review.new, restaurant: @restaurant} %>
   <ul>
     <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+  </ul>
     <%#= link_to "Remove from #{current_user.organization.name}", delete_restaurant_path(@restaurant) %>
-</ul>

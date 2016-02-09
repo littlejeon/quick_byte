@@ -27,20 +27,21 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-30">
                                         <div class="Pricing-box">
-                                            <div class="price-title spacing-box">
-                                                <h4>Users in this Organization</h4>
-                                            </div>
-                                            <hr />
-                                            <div class="pricing-features spacing-grid">
-                                                <ul>
-                                                  <% @organization.users.each do |user| %>
-                                                   <li> <%= link_to user.name, user_path(user) %>
-                                                    <% if @organization.admins.include?(current_user.id) %>
-                                                     <span class="remove_user"><%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %></span>  </li>
-                                                     <% end  %>
-                                                   <% end  %>
-                                                 </ul>
-                                            </div>
+                                            <% if @organization.admins.include?(current_user.id) %>
+                                                <div class="price-title spacing-box">
+                                                    <h4>Users in this Organization</h4>
+                                                </div>
+                                                <hr />
+                                                <div class="pricing-features spacing-grid">
+                                                    <ul>
+                                                      <% @organization.users.each do |user| %>
+                                                       <li> <%= link_to user.name, user_path(user) %>
+                                                         <span class="remove_user"><%= link_to("remove user", remove_user_path(user, @organization), method: :delete) %></span>  </li>
+                                                       <% end  %>
+                                                     </ul>
+                                                </div>
+                                             <% end  %>
+                                            
                                             <hr />
                                         </div>
                                     </div>

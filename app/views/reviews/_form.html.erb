@@ -1,28 +1,39 @@
 <h4>Add a Review</h4>
 <%= form_for(review) do |f| %>
 
-<div class="wait-field">
-  <%= f.label :wait_time %>
-  <%= f.number_field :wait_time %>
+<div class="form-field-wrapper">
+  <div class="wait-field">
+    <%= f.label :wait_time %>
+    <%= f.number_field :wait_time, :class => 'input-sm form-full' %>
+  </div>
 </div>
 
-<div class="price-field">
-  <%= f.label :price %>
-  <%= f.text_field :price %>
+<div class="form-field-wrapper">
+  <div class="price-field">
+    <%= f.label :price %>
+    <%= f.text_field :price, :class => 'input-sm form-full' %>
+  </div>
 </div>
 
-<div class="rating-field">
-  <%= f.label :rating %>
-  <%= f.number_field :rating, min:1, max: 5 %>
+<div class="form-field-wrapper">
+  <div class="rating-field">
+    <%= f.label :rating %>
+    <%= f.number_field :rating, min:1, max: 5, :class => 'input-sm form-full' %>
+  </div>
 </div>
 
-<div class="comment-field">
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
+<div class="form-field-wrapper">
+  <div class="comment-field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, :class => 'input-sm form-full' %>
+  </div>
 </div>
 
 <%= f.hidden_field :restaurant_id, :value => restaurant.id %>
 
-<%= f.submit "Create" %>
+<%= f.submit "Create", :class => 'btn btn-md btn-black' %>
 
 <% end %>
+
+
+
