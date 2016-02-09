@@ -68,6 +68,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
+    # binding.pry
     if user.update_attributes(user_params)
       redirect_to user, :notice => "Your settings have been updated!"
     else
