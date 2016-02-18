@@ -45,11 +45,11 @@ class PlansController < ApplicationController
 
   def join_plan
     @plan = Plan.find(params[:id])
-    
+
     if !@plan.users.include?(current_user)
       @plan.users << current_user
       @plan.save
-    else 
+    else
 
       flash[:error] = "You are already participating in this plan."
     end
@@ -57,7 +57,7 @@ class PlansController < ApplicationController
 
     @in_plan = @plan.users.include?(current_user)
 
-    #binding.pry
+
 
     respond_to do |format|
       format.html
