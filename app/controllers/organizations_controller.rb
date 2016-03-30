@@ -41,7 +41,6 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @organization = Organization.create(org_params)
     current_user.organizations << @organization
     user_organization = current_user.user_organizations.find_by(organization_id: @organization.id)
@@ -73,7 +72,6 @@ class OrganizationsController < ApplicationController
     current_organization.domains = params[:organization][:domains].split(", ")
     current_organization.update_attributes(org_params)
     current_organization.save
-    # binding.pry
     redirect_to current_organization
   end
 
